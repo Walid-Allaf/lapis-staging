@@ -1,0 +1,111 @@
+-- Storage-only schema. No API default, delete, sort or response policy is inferred.
+CREATE TABLE dbo.Services (
+  Id INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Services PRIMARY KEY,
+  NameAr NVARCHAR(MAX) NULL,
+  NameEn NVARCHAR(MAX) NULL,
+  SimpleDescriptionAr NVARCHAR(MAX) NULL,
+  SimpleDescriptionEn NVARCHAR(MAX) NULL,
+  DescriptionAr NVARCHAR(MAX) NULL,
+  DescriptionEn NVARCHAR(MAX) NULL,
+  SortOrder INT NULL,
+  FileId INT NULL,
+  IsActive BIT NULL,
+  CreatedAtUtc DATETIME2(7) NOT NULL CONSTRAINT DF_Services_Created DEFAULT SYSUTCDATETIME(),
+  UpdatedAtUtc DATETIME2(7) NULL,
+  RowVersion ROWVERSION NOT NULL,
+  CONSTRAINT FK_Services_FileId FOREIGN KEY (FileId) REFERENCES dbo.Files(Id)
+);
+CREATE TABLE dbo.OurSpecialists (
+  Id INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_OurSpecialists PRIMARY KEY,
+  NameAr NVARCHAR(MAX) NULL,
+  NameEn NVARCHAR(MAX) NULL,
+  DescriptionAr NVARCHAR(MAX) NULL,
+  DescriptionEn NVARCHAR(MAX) NULL,
+  SpecialistAr NVARCHAR(MAX) NULL,
+  SpecialistEn NVARCHAR(MAX) NULL,
+  FileId INT NULL,
+  IsActive BIT NULL,
+  CreatedAtUtc DATETIME2(7) NOT NULL CONSTRAINT DF_OurSpecialists_Created DEFAULT SYSUTCDATETIME(),
+  UpdatedAtUtc DATETIME2(7) NULL,
+  RowVersion ROWVERSION NOT NULL,
+  CONSTRAINT FK_OurSpecialists_FileId FOREIGN KEY (FileId) REFERENCES dbo.Files(Id)
+);
+CREATE TABLE dbo.FAQs (
+  Id INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_FAQs PRIMARY KEY,
+  QuestionAr NVARCHAR(MAX) NULL,
+  QuestionEn NVARCHAR(MAX) NULL,
+  AnswerAr NVARCHAR(MAX) NULL,
+  AnswerEn NVARCHAR(MAX) NULL,
+  IsActive BIT NULL,
+  CreatedAtUtc DATETIME2(7) NOT NULL CONSTRAINT DF_FAQs_Created DEFAULT SYSUTCDATETIME(),
+  UpdatedAtUtc DATETIME2(7) NULL,
+  RowVersion ROWVERSION NOT NULL
+);
+CREATE TABLE dbo.Galleries (
+  Id INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Galleries PRIMARY KEY,
+  TitleAr NVARCHAR(MAX) NULL,
+  TitleEn NVARCHAR(MAX) NULL,
+  DescriptionAr NVARCHAR(MAX) NULL,
+  DescriptionEn NVARCHAR(MAX) NULL,
+  BeforeFileId INT NULL,
+  AfterFileId INT NULL,
+  IsActive BIT NULL,
+  CreatedAtUtc DATETIME2(7) NOT NULL CONSTRAINT DF_Galleries_Created DEFAULT SYSUTCDATETIME(),
+  UpdatedAtUtc DATETIME2(7) NULL,
+  RowVersion ROWVERSION NOT NULL,
+  CONSTRAINT FK_Galleries_BeforeFileId FOREIGN KEY (BeforeFileId) REFERENCES dbo.Files(Id),
+  CONSTRAINT FK_Galleries_AfterFileId FOREIGN KEY (AfterFileId) REFERENCES dbo.Files(Id)
+);
+CREATE TABLE dbo.YouTubeGalleries (
+  Id INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_YouTubeGalleries PRIMARY KEY,
+  TitleAr NVARCHAR(MAX) NULL,
+  TitleEn NVARCHAR(MAX) NULL,
+  DescriptionAr NVARCHAR(MAX) NULL,
+  DescriptionEn NVARCHAR(MAX) NULL,
+  VideoUrl NVARCHAR(MAX) NULL,
+  IsActive BIT NULL,
+  CreatedAtUtc DATETIME2(7) NOT NULL CONSTRAINT DF_YouTubeGalleries_Created DEFAULT SYSUTCDATETIME(),
+  UpdatedAtUtc DATETIME2(7) NULL,
+  RowVersion ROWVERSION NOT NULL
+);
+CREATE TABLE dbo.Testimonials (
+  Id INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Testimonials PRIMARY KEY,
+  TitleAr NVARCHAR(MAX) NULL,
+  TitleEn NVARCHAR(MAX) NULL,
+  DescriptionAr NVARCHAR(MAX) NULL,
+  DescriptionEn NVARCHAR(MAX) NULL,
+  Rating INT NULL,
+  FileId INT NULL,
+  IsActive BIT NULL,
+  CreatedAtUtc DATETIME2(7) NOT NULL CONSTRAINT DF_Testimonials_Created DEFAULT SYSUTCDATETIME(),
+  UpdatedAtUtc DATETIME2(7) NULL,
+  RowVersion ROWVERSION NOT NULL,
+  CONSTRAINT FK_Testimonials_FileId FOREIGN KEY (FileId) REFERENCES dbo.Files(Id)
+);
+CREATE TABLE dbo.BlogPosts (
+  Id INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_BlogPosts PRIMARY KEY,
+  TitleAr NVARCHAR(MAX) NULL,
+  TitleEn NVARCHAR(MAX) NULL,
+  SummaryAr NVARCHAR(MAX) NULL,
+  SummaryEn NVARCHAR(MAX) NULL,
+  ContentAr NVARCHAR(MAX) NULL,
+  ContentEn NVARCHAR(MAX) NULL,
+  MetaTitleAr NVARCHAR(MAX) NULL,
+  MetaTitleEn NVARCHAR(MAX) NULL,
+  MetaDescriptionAr NVARCHAR(MAX) NULL,
+  MetaDescriptionEn NVARCHAR(MAX) NULL,
+  Slug NVARCHAR(MAX) NULL,
+  SlugHash AS CONVERT(BINARY(32),HASHBYTES('SHA2_256',CONVERT(VARBINARY(MAX),Slug))) PERSISTED,
+  OurSpecialistId INT NULL,
+  FileId INT NULL,
+  Status INT NULL,
+  IsFeatured BIT NULL,
+  SortOrder INT NULL,
+  IsActive BIT NULL,
+  CreatedAtUtc DATETIME2(7) NOT NULL CONSTRAINT DF_BlogPosts_Created DEFAULT SYSUTCDATETIME(),
+  UpdatedAtUtc DATETIME2(7) NULL,
+  RowVersion ROWVERSION NOT NULL,
+  CONSTRAINT FK_BlogPosts_OurSpecialistId FOREIGN KEY (OurSpecialistId) REFERENCES dbo.OurSpecialists(Id),
+  CONSTRAINT FK_BlogPosts_FileId FOREIGN KEY (FileId) REFERENCES dbo.Files(Id),
+  CONSTRAINT CK_BlogPosts_Status CHECK (Status IN (0,1,2))
+);

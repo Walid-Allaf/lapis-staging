@@ -1,0 +1,1 @@
+export { default as OurSpecialistsSchema } from './our-specialists-validation';

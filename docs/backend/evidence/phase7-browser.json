@@ -1,0 +1,208 @@
+{
+  "steps": [
+    {
+      "name": "empty public pages render in Arabic and English with metadata and sitemap",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile layout at 390x844 has no settled horizontal overflow",
+      "status": "FAIL"
+    },
+    {
+      "name": "unauthorized pages/APIs are rejected; invalid login fails then secure SuperAdmin login succeeds",
+      "status": "PASS"
+    },
+    {
+      "name": "Services first record create/read/update through unchanged form and table",
+      "status": "PASS"
+    },
+    {
+      "name": "FAQs first record create/read/update through unchanged form and table",
+      "status": "PASS"
+    },
+    {
+      "name": "OurSpecialists first record create/read/update through unchanged form and table",
+      "status": "PASS"
+    },
+    {
+      "name": "Testimonials first record create/read/update through unchanged form and table",
+      "status": "PASS"
+    },
+    {
+      "name": "Galleries first record create/read/update through unchanged form and table",
+      "status": "PASS"
+    },
+    {
+      "name": "YouTubeGalleries first record create/read/update through unchanged form and table",
+      "status": "PASS"
+    },
+    {
+      "name": "BlogPosts first record create/read/update through unchanged form and table",
+      "status": "PASS"
+    },
+    {
+      "name": "settings UI saves first values and invalidates public cache; uploaded image renders publicly",
+      "status": "PASS"
+    },
+    {
+      "name": "measured startup/RSS/warm reads/concurrent reads/SQL sessions and UI image upload memory",
+      "status": "PASS"
+    },
+    {
+      "name": "media bytes, ETag and Range persist across complete application restart; browser session restores",
+      "status": "PASS"
+    },
+    {
+      "name": "BlogPosts delete through existing confirmation UI",
+      "status": "PASS"
+    },
+    {
+      "name": "YouTubeGalleries delete through existing confirmation UI",
+      "status": "PASS"
+    },
+    {
+      "name": "Galleries delete through existing confirmation UI",
+      "status": "PASS"
+    },
+    {
+      "name": "Testimonials delete through existing confirmation UI",
+      "status": "PASS"
+    },
+    {
+      "name": "OurSpecialists delete through existing confirmation UI",
+      "status": "PASS"
+    },
+    {
+      "name": "FAQs delete through existing confirmation UI",
+      "status": "PASS"
+    },
+    {
+      "name": "Services delete through existing confirmation UI",
+      "status": "PASS"
+    },
+    {
+      "name": "UI logout revokes SQL session and protected routes fail; no legacy calls or browser exceptions",
+      "status": "PASS"
+    }
+  ],
+  "browser": "157.0.8103.50",
+  "legacyAttempts": 0,
+  "pageErrors": [],
+  "performance": {
+    "freshIdleRssBytes": 121110528,
+    "startupMs": 326,
+    "idleRssBytes": 235548672,
+    "warmRead": {
+      "requests": 30,
+      "p50Ms": 11.03,
+      "p95Ms": 16.87
+    },
+    "concurrentReads": {
+      "concurrency": 6,
+      "requests": 30,
+      "elapsedMs": 76,
+      "passed": 6
+    },
+    "sqlSessions": [
+      {
+        "connections": 3,
+        "processId": 8356
+      },
+      {
+        "connections": 2,
+        "processId": 23996
+      }
+    ],
+    "nextProcessId": 8356,
+    "testProcessId": 23996,
+    "isolatedDriverPool": {
+      "requests": 6,
+      "maxSize": 3,
+      "maxBorrowed": 3,
+      "maxPending": 4,
+      "sampleIntervalMs": 10
+    },
+    "poolConfiguredMax": 3,
+    "beforeImageUploadRssBytes": 237449216,
+    "imageUploadMs": 592,
+    "afterImageUploadRssBytes": 256184320,
+    "imageFixtureBytes": 3147780,
+    "rssMethod": "Windows Get-Process WorkingSet64, checkpoints, not peak"
+  },
+  "screenshots": [
+    "phase7-mobile-empty.png",
+    "phase7-public-service.png",
+    "phase7-final-state.png"
+  ],
+  "privateCli": {
+    "initialize": "PASS",
+    "bootstrap": "PASS",
+    "passwordLogged": false
+  },
+  "mobile": {
+    "viewport": 390,
+    "scrollWidth": 485,
+    "overflow": [
+      {
+        "tag": "DIV",
+        "classes": "welcome-copy aos-init",
+        "width": 350
+      },
+      {
+        "tag": "H2",
+        "classes": "max-w-[var(--welcome-title-width)] font-display text-heading-md font-semibold leading-title text-primary lg:text-heading-lg",
+        "width": 350
+      },
+      {
+        "tag": "SPAN",
+        "classes": "",
+        "width": 261
+      },
+      {
+        "tag": "SPAN",
+        "classes": "relative inline-block whitespace-nowrap ",
+        "width": 199
+      },
+      {
+        "tag": "svg",
+        "classes": {},
+        "width": 199
+      },
+      {
+        "tag": "path",
+        "classes": {},
+        "width": 195
+      },
+      {
+        "tag": "path",
+        "classes": {},
+        "width": 181
+      },
+      {
+        "tag": "SPAN",
+        "classes": "",
+        "width": 345
+      },
+      {
+        "tag": "P",
+        "classes": "mt-[var(--welcome-copy-gap)] max-w-[var(--welcome-body-width)] text-body-lg text-[var(--color-muted)]",
+        "width": 350
+      },
+      {
+        "tag": "DIV",
+        "classes": "welcome-visual aos-init",
+        "width": 320
+      },
+      {
+        "tag": "DIV",
+        "classes": "welcome-visual-gradient",
+        "width": 320
+      },
+      {
+        "tag": "DIV",
+        "classes": "welcome-image-frame",
+        "width": 320
+      }
+    ]
+  }
+}

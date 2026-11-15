@@ -1,0 +1,387 @@
+{
+  "baseline": {
+    "lintErrors": 0,
+    "lintWarnings": 2,
+    "types": "pass",
+    "build": "pass"
+  },
+  "final": {
+    "lintErrors": 0,
+    "lintWarnings": 11,
+    "types": "pass",
+    "build": "pass",
+    "unitTests": 5
+  },
+  "auth": {
+    "results": [
+      {
+        "name": "unauthenticated deep link redirects without admin requests or chrome",
+        "pass": true
+      },
+      {
+        "name": "wrong credentials stay on login and show Arabic error",
+        "pass": true
+      },
+      {
+        "name": "non-admin successful login never persists token",
+        "pass": true
+      },
+      {
+        "name": "valid admin login follows the saved deep link",
+        "pass": true
+      },
+      {
+        "name": "hard refresh hydrates the admin session without login bounce",
+        "pass": true
+      },
+      {
+        "name": "logout confirms and clears auth and protected content",
+        "pass": true
+      },
+      {
+        "name": "expired persisted session fails closed",
+        "pass": true
+      },
+      {
+        "name": "non-admin persisted session fails closed",
+        "pass": true
+      },
+      {
+        "name": "missing-expiry persisted session fails closed",
+        "pass": true
+      },
+      {
+        "name": "malformed-roles persisted session fails closed",
+        "pass": true
+      },
+      {
+        "name": "API 401 clears an invalid token and redirects",
+        "pass": true
+      },
+      {
+        "name": "legacy persisted JWT session recovers expiry",
+        "pass": true
+      },
+      {
+        "name": "ignores redirect https://evil.com",
+        "pass": true
+      },
+      {
+        "name": "ignores redirect //evil.com",
+        "pass": true
+      },
+      {
+        "name": "ignores redirect /dashboardevil",
+        "pass": true
+      },
+      {
+        "name": "ignores redirect /dashboard/login",
+        "pass": true
+      },
+      {
+        "name": "ignores redirect /dashboard/../services",
+        "pass": true
+      },
+      {
+        "name": "unknown dashboard URL keeps dashboard 404 and document",
+        "pass": true
+      }
+    ],
+    "errors": [],
+    "expected401ConsoleMessages": [
+      "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    ]
+  },
+  "features": {
+    "results": [
+      {
+        "name": "services list, filter, pagination and image URL",
+        "pass": true
+      },
+      {
+        "name": "services create, validation, upload, editor and mutation",
+        "pass": true
+      },
+      {
+        "name": "services edit and confirm-delete",
+        "pass": true
+      },
+      {
+        "name": "faqs list, filter, pagination and image URL",
+        "pass": true
+      },
+      {
+        "name": "faqs create, validation, upload, editor and mutation",
+        "pass": true
+      },
+      {
+        "name": "faqs edit and confirm-delete",
+        "pass": true
+      },
+      {
+        "name": "our-specialists list, filter, pagination and image URL",
+        "pass": true
+      },
+      {
+        "name": "our-specialists create, validation, upload, editor and mutation",
+        "pass": true
+      },
+      {
+        "name": "our-specialists edit and confirm-delete",
+        "pass": true
+      },
+      {
+        "name": "testimonials list, filter, pagination and image URL",
+        "pass": true
+      },
+      {
+        "name": "testimonials create, validation, upload, editor and mutation",
+        "pass": true
+      },
+      {
+        "name": "testimonials edit and confirm-delete",
+        "pass": true
+      },
+      {
+        "name": "gallery list, filter, pagination and image URL",
+        "pass": true
+      },
+      {
+        "name": "gallery create, validation, upload, editor and mutation",
+        "pass": true
+      },
+      {
+        "name": "gallery edit and confirm-delete",
+        "pass": true
+      },
+      {
+        "name": "youtube-galleries list, filter, pagination and image URL",
+        "pass": true
+      },
+      {
+        "name": "youtube-galleries create, validation, upload, editor and mutation",
+        "pass": true
+      },
+      {
+        "name": "youtube-galleries edit and confirm-delete",
+        "pass": true
+      },
+      {
+        "name": "blog-posts list, filter, pagination and image URL",
+        "pass": true
+      },
+      {
+        "name": "blog-posts create, validation, upload, editor and mutation",
+        "pass": true
+      },
+      {
+        "name": "blog-posts edit and confirm-delete",
+        "pass": true
+      },
+      {
+        "name": "settings load, edit, toggle and save",
+        "pass": true
+      },
+      {
+        "name": "mobile sidebar and horizontally scrolling table",
+        "pass": true
+      }
+    ],
+    "errors": [],
+    "consoleErrors": []
+  },
+  "public": {
+    "results": [
+      {
+        "url": "/",
+        "status": 200,
+        "baselineStatus": 200,
+        "metadataEqual": true,
+        "sourceMetadataEqual": true,
+        "pixels": {
+          "before": {
+            "format": "raw",
+            "width": 1440,
+            "height": 6861,
+            "channels": 3,
+            "depth": "uchar",
+            "premultiplied": false,
+            "size": 29639520
+          },
+          "after": {
+            "format": "raw",
+            "width": 1440,
+            "height": 6838,
+            "channels": 3,
+            "depth": "uchar",
+            "premultiplied": false,
+            "size": 29540160
+          }
+        }
+      },
+      {
+        "url": "/services",
+        "status": 200,
+        "baselineStatus": 200,
+        "metadataEqual": true,
+        "sourceMetadataEqual": true,
+        "pixels": null
+      },
+      {
+        "url": "/gallery",
+        "status": 200,
+        "baselineStatus": 200,
+        "metadataEqual": true,
+        "sourceMetadataEqual": true,
+        "pixels": null
+      },
+      {
+        "url": "/youtube-videos",
+        "status": 200,
+        "baselineStatus": 200,
+        "metadataEqual": true,
+        "sourceMetadataEqual": true,
+        "pixels": null
+      },
+      {
+        "url": "/blog",
+        "status": 200,
+        "baselineStatus": 200,
+        "metadataEqual": true,
+        "sourceMetadataEqual": true,
+        "pixels": null
+      },
+      {
+        "url": "/about",
+        "status": 200,
+        "baselineStatus": 200,
+        "metadataEqual": true,
+        "sourceMetadataEqual": true,
+        "pixels": null
+      },
+      {
+        "url": "/contact",
+        "status": 200,
+        "baselineStatus": 200,
+        "metadataEqual": true,
+        "sourceMetadataEqual": true,
+        "pixels": null
+      },
+      {
+        "url": "/does-not-exist",
+        "status": 404,
+        "baselineStatus": 404,
+        "metadataEqual": false,
+        "sourceMetadataEqual": false,
+        "pixels": {
+          "different": 22253,
+          "total": 1440000
+        }
+      },
+      {
+        "url": "/sitemap.xml",
+        "status": 200,
+        "baselineStatus": 200,
+        "metadataEqual": true,
+        "sourceMetadataEqual": true,
+        "pixels": null
+      },
+      {
+        "url": "/robots.txt",
+        "status": 200,
+        "baselineStatus": 200,
+        "metadataEqual": true,
+        "sourceMetadataEqual": true,
+        "pixels": null
+      },
+      {
+        "url": "/manifest.webmanifest",
+        "status": 200,
+        "baselineStatus": 200,
+        "metadataEqual": true,
+        "sourceMetadataEqual": true,
+        "pixels": null
+      },
+      {
+        "url": "/blog/string",
+        "status": 200,
+        "baselineStatus": 200,
+        "metadataEqual": true,
+        "sourceMetadataEqual": true,
+        "pixels": null
+      }
+    ],
+    "isolation": {
+      "siteCss": [
+        "http://localhost:3100/_next/static/chunks/0u76i-eyqw8m6.css"
+      ],
+      "dashCss": [
+        "http://localhost:3100/_next/static/chunks/2r_9o90esf_1a.css"
+      ],
+      "siteHasDashboardRules": false,
+      "dashboardHasSiteRules": false,
+      "siteHasDashboardOnlyUtility": false,
+      "dashboardHasSiteOnlyUtility": false,
+      "lang": "ar",
+      "dir": "rtl",
+      "font": "\"Readex Pro\", \"Readex Pro Fallback\", sans-serif",
+      "noindexHeader": "noindex, nofollow",
+      "noindexMeta": "noindex, nofollow",
+      "publicJsonLd": 0,
+      "publicFooter": 0,
+      "publicLanguagePreserved": true
+    },
+    "languageButtons": [
+      {
+        "text": "العربية",
+        "aria": "Switch language"
+      },
+      {
+        "text": "",
+        "aria": "Play intro video"
+      },
+      {
+        "text": "",
+        "aria": "Show previous specialist"
+      },
+      {
+        "text": "",
+        "aria": "Show next specialist"
+      },
+      {
+        "text": "",
+        "aria": "Show previous testimonial"
+      },
+      {
+        "text": "",
+        "aria": "Show next testimonial"
+      },
+      {
+        "text": "Can I see who reads my email campaigns?",
+        "aria": null
+      },
+      {
+        "text": "Learn More",
+        "aria": null
+      }
+    ],
+    "errors": [],
+    "consoleErrors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ]
+  },
+  "language": {
+    "arPersists": true,
+    "enPersists": true,
+    "dashboardDoesNotChangeSiteLanguage": true,
+    "publicChrome": {
+      "header": 1,
+      "footer": 1,
+      "jsonLd": 1,
+      "aos": 37
+    },
+    "errors": []
+  }
+}

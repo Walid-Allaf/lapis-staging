@@ -1,0 +1,199 @@
+'use client'
+
+import { ChevronLeft, type LucideIcon } from 'lucide-react'
+
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/dashboard/components/shadcn-ui/collapsible'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/dashboard/components/shadcn-ui/dropdown-menu'
+import { SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, useSidebar } from '@/dashboard/components/shadcn-ui/sidebar'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+interface NavMainProps {
+  readonly items: readonly NavGroup[];
+}
+
+export interface NavSubItem {
+  title: string;
+  url: string;
+  icon?: LucideIcon;
+  comingSoon?: boolean;
+  newTab?: boolean;
+  isNew?: boolean;
+  visible?: boolean;
+}
+
+export interface NavMainItem {
+  title: string;
+  url: string;
+  icon?: LucideIcon;
+  subItems?: NavSubItem[];
+  comingSoon?: boolean;
+  newTab?: boolean;
+  isNew?: boolean;
+  visible?: boolean;
+}
+
+export interface NavGroup {
+  id: number;
+  label?: string;
+  items: NavMainItem[];
+}
+
+const IsComingSoon = () => (
+  <span className="rounded-md bg-gray-200 px-2 py-1 text-xs dark:text-gray-800">Soon</span>
+)
+
+const NavItemExpanded = ({item, isActive, isSubmenuOpen}: {
+  item: NavMainItem;
+  isActive: (url: string, subItems?: NavMainItem['subItems']) => boolean;
+  isSubmenuOpen: (subItems?: NavMainItem['subItems']) => boolean;
+}) => {
+  const Icon = item.icon
+  return (
+    <Collapsible key={item.title} asChild defaultOpen={isSubmenuOpen(item.subItems)} className="group/collapsible">
+      <SidebarMenuItem>
+        <CollapsibleTrigger asChild>
+          {item.subItems ? (
+            <SidebarMenuButton
+              disabled={item.comingSoon}
+              isActive={isActive(item.url, item.subItems)}
+              tooltip={item.title}
+            >
+              {Icon && <Icon/>}
+              <span>{item.title}</span>
+              {item.comingSoon && <IsComingSoon/>}
+              <ChevronLeft className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-[-90deg]"/>
+            </SidebarMenuButton>
+          ) : (
+            <SidebarMenuButton
+              asChild
+              aria-disabled={item.comingSoon}
+              isActive={isActive(item.url)}
+              tooltip={item.title}
+            >
+              <Link href={item.url} target={item.newTab ? '_blank' : undefined}>
+                {Icon && <Icon/>}
+                <span>{item.title}</span>
+                {item.comingSoon && <IsComingSoon/>}
+              </Link>
+            </SidebarMenuButton>
+          )}
+        </CollapsibleTrigger>
+        {item.subItems && (
+          <CollapsibleContent>
+            <SidebarMenuSub>
+              {item.subItems.map((subItem) => (
+                <SidebarMenuSubItem key={subItem.title}>
+                  <SidebarMenuSubButton aria-disabled={subItem.comingSoon} isActive={isActive(subItem.url)} asChild>
+                    <Link href={subItem.url} target={subItem.newTab ? '_blank' : undefined}>
+                      {subItem.icon && <subItem.icon/>}
+                      <span>{subItem.title}</span>
+                      {subItem.comingSoon && <IsComingSoon/>}
+                    </Link>
+                  </SidebarMenuSubButton>
+                </SidebarMenuSubItem>
+              ))}
+            </SidebarMenuSub>
+          </CollapsibleContent>
+        )}
+      </SidebarMenuItem>
+    </Collapsible>
+  )
+}
+
+const NavItemCollapsed = ({item, isActive}: { item: NavMainItem; isActive: (url: string, subItems?: NavMainItem['subItems']) => boolean; }) => {
+  return (
+    <SidebarMenuItem key={item.title}>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <SidebarMenuButton
+            disabled={item.comingSoon}
+            tooltip={item.title}
+            isActive={isActive(item.url, item.subItems)}
+          >
+            {item.icon && <item.icon/>}
+            <span>{item.title}</span>
+            <ChevronLeft/>
+          </SidebarMenuButton>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-50 space-y-1" side="right" align="start">
+          {item.subItems?.map((subItem) => (
+            <DropdownMenuItem key={subItem.title} asChild>
+              <SidebarMenuSubButton
+                key={subItem.title}
+                asChild
+                className="focus-visible:ring-0"
+                aria-disabled={subItem.comingSoon}
+                isActive={isActive(subItem.url)}
+              >
+                <Link href={subItem.url} target={subItem.newTab ? '_blank' : undefined}>
+                  {subItem.icon && <subItem.icon className="[&>svg]:text-sidebar-foreground"/>}
+                  <span>{subItem.title}</span>
+                  {subItem.comingSoon && <IsComingSoon/>}
+                </Link>
+              </SidebarMenuSubButton>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </SidebarMenuItem>
+  )
+}
+
+export function NavMain({items}: NavMainProps) {
+  const pathname = usePathname()
+  const {state, isMobile} = useSidebar()
+
+  const isItemActive = (url: string, subItems?: NavMainItem['subItems']) => {
+    if (subItems?.length) {
+      return subItems.some((sub) => pathname.startsWith(sub.url))
+    }
+    return pathname === url
+  }
+
+  const isSubmenuOpen = (subItems?: NavMainItem['subItems']) => {
+    return subItems?.some((sub) => pathname.startsWith(sub.url)) ?? false
+  }
+
+  return (
+    <>
+      {items.map((group) => (
+        <SidebarGroup key={group.id}>
+          {group.label && <SidebarGroupLabel>{group.label}</SidebarGroupLabel>}
+          <SidebarGroupContent className="flex flex-col gap-2">
+            <SidebarMenu key={pathname}>
+              {group.items.map((item) => {
+                if (state === 'collapsed' && !isMobile) {
+                  // If no subItems, just render the button as a link
+                  if (!item.subItems) {
+                    return (
+                      <SidebarMenuItem key={item.title}>
+                        <SidebarMenuButton
+                          asChild
+                          aria-disabled={item.comingSoon}
+                          tooltip={item.title}
+                          isActive={isItemActive(item.url)}
+                        >
+                          <Link href={item.url} target={item.newTab ? '_blank' : undefined}>
+                            {item.icon && <item.icon/>}
+                            <span>{item.title}</span>
+                          </Link>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    )
+                  }
+                  // Otherwise, render the dropdown as before
+                  return <NavItemCollapsed key={item.title} item={item} isActive={isItemActive}/>
+                }
+                // Expanded view
+                return (
+                  <NavItemExpanded key={item.title} item={item} isActive={isItemActive} isSubmenuOpen={isSubmenuOpen}/>
+                )
+              })}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      ))}
+    </>
+  )
+}

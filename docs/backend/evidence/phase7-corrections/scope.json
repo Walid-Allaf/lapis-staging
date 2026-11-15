@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-12",
+  "snapshotFiles": 634,
+  "frontendFiles": 469,
+  "authorizedFrontendChanges": [
+    "app/(site)/globals.css"
+  ],
+  "changedExisting": [
+    "app/(site)/globals.css",
+    "tests/backend/browser.integration.test.mjs",
+    "docs/backend/evidence/phase7-cleanup.json",
+    "docs/backend/PHASE7_BROWSER_TESTS.md",
+    "docs/backend/PHASE7_PRODUCTION_CHECKLIST.md",
+    "docs/backend/PHASE7_RELEASE_READINESS.md",
+    "docs/backend/PHASE7_RELEASE_RUNBOOK.md",
+    "docs/backend/PHASE7_STAGING_PLAN.md",
+    "AGENTS.md",
+    "README.md",
+    "package.json"
+  ],
+  "newFiles": [
+    "scripts/test/inspect-phase7-cleanup.ps1",
+    "scripts/test/mobile-diagnostics.mjs",
+    "tests/backend/mobile-diagnostics.mjs",
+    "docs/backend/PHASE7_LOCAL_CLEANUP.md",
+    "docs/backend/PHASE7_MOBILE_CORRECTION.md"
+  ],
+  "unchanged": {
+    "backend": true,
+    "allOtherFrontend": true,
+    "swagger": true,
+    "env": true,
+    "dependencyLock": true,
+    "nextConfig": true,
+    "immutableMigrations": 7
+  },
+  "css": {
+    "file": "app/(site)/globals.css",
+    "beforeSha256": "9c038be8cee082c8a5b874a6151abd999573407983f1047b506c80b2ff0b83e9",
+    "afterSha256": "e325625f2d19be76fbbc2e2e65baf254152b5e609bd59f9d310cb2ce82323839"
+  }
+}

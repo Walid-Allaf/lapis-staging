@@ -1,0 +1,338 @@
+{
+  "metadata": [
+    {
+      "path": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-auth-created.json",
+      "sha256": "0896a5bf20ac8989a45ef26e941d51c24b6b4c441bc2e761fab93bcbd117b8e7"
+    },
+    {
+      "path": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-created.json",
+      "sha256": "957a8c3d2dd2f2bbf95746d611b07cf31b0996faf393dab1b79ad7c872950399"
+    },
+    {
+      "path": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-content-created.json",
+      "sha256": "1845119abc5d7cebdccf7e2fb7b6e4c7dada428daf918bbc7c7fe9233a6dae31"
+    },
+    {
+      "path": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-db-created.json",
+      "sha256": "14829ef9e8524e7187cb6c686119e0800c2a993e5403e1848035de994dbc7571"
+    },
+    {
+      "path": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-files-created.json",
+      "sha256": "77ea3e09c3ae3a92b3c92edcdb9a36ffa8dce2f869ccd5419f324ad7bcdc9802"
+    },
+    {
+      "path": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-full-created.json",
+      "sha256": "a6ef4d2467a30b5235a7091860e08980299beae332493cdee62ea5dd89d7e0f1"
+    },
+    {
+      "path": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-release-created.json",
+      "sha256": "d5f523509e3d5b2673b8752d7ac062aa40e5fde7fe6173f1e80bba22e443d172"
+    }
+  ],
+  "approvalPolicy": "never",
+  "narrowerApprovalToolAvailable": false,
+  "date": "2026-11-12",
+  "credentialFiles": [
+    {
+      "path": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-auth-test-env.json",
+      "database": "lapis_test_7d908468c7374050",
+      "protectedAcl": true,
+      "login": "lapis_test_login_7d908468c7374050"
+    },
+    {
+      "path": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-test-env.json",
+      "database": "lapis_test_ce8cdfa0f89a4329",
+      "protectedAcl": true,
+      "login": "lapis_test_login_ce8cdfa0f89a4329"
+    },
+    {
+      "path": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-content-test-env.json",
+      "database": "lapis_test_6158cb9d0ad34af4",
+      "protectedAcl": true,
+      "login": "lapis_test_login_6158cb9d0ad34af4"
+    },
+    {
+      "path": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-db-test-env.json",
+      "database": "lapis_test_56304498a1394c55",
+      "protectedAcl": true,
+      "login": "lapis_test_login_56304498a1394c55"
+    },
+    {
+      "path": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-files-test-env.json",
+      "database": "lapis_test_c9d850c3a3294479",
+      "protectedAcl": true,
+      "login": "lapis_test_login_c9d850c3a3294479"
+    },
+    {
+      "path": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-full-test-env.json",
+      "database": "lapis_test_9ce78d1eaf174d86",
+      "protectedAcl": true,
+      "login": "lapis_test_login_9ce78d1eaf174d86"
+    },
+    {
+      "path": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-release-test-env.json",
+      "database": "lapis_test_5b850c237bea4f9c",
+      "protectedAcl": true,
+      "login": "lapis_test_login_5b850c237bea4f9c"
+    }
+  ],
+  "targets": [
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-auth-created.json",
+      "disabled": false,
+      "database": "lapis_test_1ddcd70c7f0f42ca",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:28:43",
+      "login": "lapis_test_login_1ddcd70c7f0f42ca"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-release-created.json",
+      "disabled": false,
+      "database": "lapis_test_290336a1f94f461a",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:45:32",
+      "login": "lapis_test_login_290336a1f94f461a"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-created.json",
+      "disabled": false,
+      "database": "lapis_test_2e2acbc5e33c4e0f",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:30:08",
+      "login": "lapis_test_login_2e2acbc5e33c4e0f"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-created.json",
+      "disabled": false,
+      "database": "lapis_test_36d6cc5766ee4c99",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:29:11",
+      "login": "lapis_test_login_36d6cc5766ee4c99"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-full-created.json",
+      "disabled": false,
+      "database": "lapis_test_3920865d26eb4875",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:35:35",
+      "login": "lapis_test_login_3920865d26eb4875"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-release-created.json",
+      "disabled": false,
+      "database": "lapis_test_42d09b40bf314413",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:47:00",
+      "login": "lapis_test_login_42d09b40bf314413"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-created.json",
+      "disabled": false,
+      "database": "lapis_test_457527d3c1014f20",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-12T18:01:34",
+      "login": "lapis_test_login_457527d3c1014f20"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-db-created.json",
+      "disabled": false,
+      "database": "lapis_test_56304498a1394c55",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-12T17:55:30",
+      "login": "lapis_test_login_56304498a1394c55"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-release-created.json",
+      "disabled": false,
+      "database": "lapis_test_5b850c237bea4f9c",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-12T17:56:09",
+      "login": "lapis_test_login_5b850c237bea4f9c"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-content-created.json",
+      "disabled": false,
+      "database": "lapis_test_6158cb9d0ad34af4",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-12T17:55:51",
+      "login": "lapis_test_login_6158cb9d0ad34af4"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-release-created.json",
+      "disabled": false,
+      "database": "lapis_test_61b80bdf287943a2",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:25:14",
+      "login": "lapis_test_login_61b80bdf287943a2"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-created.json",
+      "disabled": false,
+      "database": "lapis_test_64d6f72d52a946fb",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:30:26",
+      "login": "lapis_test_login_64d6f72d52a946fb"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-created.json",
+      "disabled": false,
+      "database": "lapis_test_71599019f4c94995",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:41:54",
+      "login": "lapis_test_login_71599019f4c94995"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-db-created.json",
+      "disabled": false,
+      "database": "lapis_test_720e1c90c518429d",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:28:38",
+      "login": "lapis_test_login_720e1c90c518429d"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-files-created.json",
+      "disabled": false,
+      "database": "lapis_test_736b0c5a7341472e",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:29:06",
+      "login": "lapis_test_login_736b0c5a7341472e"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-created.json",
+      "disabled": false,
+      "database": "lapis_test_7504f273b0474129",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:39:24",
+      "login": "lapis_test_login_7504f273b0474129"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-auth-created.json",
+      "disabled": false,
+      "database": "lapis_test_7d908468c7374050",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-12T17:55:35",
+      "login": "lapis_test_login_7d908468c7374050"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-content-created.json",
+      "disabled": false,
+      "database": "lapis_test_84d3b6fc07534ebc",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:28:59",
+      "login": "lapis_test_login_84d3b6fc07534ebc"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-created.json",
+      "disabled": false,
+      "database": "lapis_test_872106a2f3674e77",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:32:05",
+      "login": "lapis_test_login_872106a2f3674e77"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-release-created.json",
+      "disabled": false,
+      "database": "lapis_test_8db6de80d42c4659",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:34:08",
+      "login": "lapis_test_login_8db6de80d42c4659"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-created.json",
+      "disabled": false,
+      "database": "lapis_test_8e0b3fac58564cec",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:33:34",
+      "login": "lapis_test_login_8e0b3fac58564cec"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-full-created.json",
+      "disabled": false,
+      "database": "lapis_test_9ce78d1eaf174d86",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-12T18:02:29",
+      "login": "lapis_test_login_9ce78d1eaf174d86"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-created.json",
+      "disabled": false,
+      "database": "lapis_test_a77083cadc4d4163",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:28:02",
+      "login": "lapis_test_login_a77083cadc4d4163"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-created.json",
+      "disabled": false,
+      "database": "lapis_test_ab4c06d0356b495b",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:34:28",
+      "login": "lapis_test_login_ab4c06d0356b495b"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-files-created.json",
+      "disabled": false,
+      "database": "lapis_test_c9d850c3a3294479",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-12T17:55:59",
+      "login": "lapis_test_login_c9d850c3a3294479"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-created.json",
+      "disabled": false,
+      "database": "lapis_test_ce8cdfa0f89a4329",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-12T18:12:31",
+      "login": "lapis_test_login_ce8cdfa0f89a4329"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-created.json",
+      "disabled": false,
+      "database": "lapis_test_e11c6a7c59384961",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:37:48",
+      "login": "lapis_test_login_e11c6a7c59384961"
+    },
+    {
+      "metadata": "C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-created.json",
+      "disabled": false,
+      "database": "lapis_test_fea3e46165764dc8",
+      "present": true,
+      "databasePresent": true,
+      "created": "2026-11-11T22:31:07",
+      "login": "lapis_test_login_fea3e46165764dc8"
+    }
+  ],
+  "readOnly": true,
+  "cleanupAttemptedThisCorrection": false,
+  "reason": "Prior cleanup was rejected: blocked by policy. No authorized approval-request mechanism is available; no mutation retried.",
+  "status": "BLOCKED",
+  "instance": ".\\SQLEXPRESS"
+}

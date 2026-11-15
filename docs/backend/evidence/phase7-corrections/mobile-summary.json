@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-12",
+  "status": "PASS",
+  "browser": "157.0.8103.51",
+  "repeatedFinalRounds": 3,
+  "supplementaryEarlierRounds": 3,
+  "mobileCases": 30,
+  "desktopCases": 6,
+  "snapshots": 360,
+  "comparison": [
+    {
+      "width": 320,
+      "beforeMax": 415,
+      "afterMin": 320,
+      "afterMax": 320
+    },
+    {
+      "width": 375,
+      "beforeMax": 470,
+      "afterMin": 375,
+      "afterMax": 375
+    },
+    {
+      "width": 390,
+      "beforeMax": 485,
+      "afterMin": 390,
+      "afterMax": 390
+    },
+    {
+      "width": 414,
+      "beforeMax": 509,
+      "afterMin": 414,
+      "afterMax": 414
+    },
+    {
+      "width": 430,
+      "beforeMax": 525,
+      "afterMin": 430,
+      "afterMax": 430
+    },
+    {
+      "width": 1440,
+      "beforeMax": 1440,
+      "afterMin": 1440,
+      "afterMax": 1440
+    }
+  ],
+  "desktopGeometryUnchanged": true,
+  "visibleHeroBeforeScreenshot": true,
+  "twoActualAnimatedElementsPerCase": true,
+  "noClippedVisibleText": true,
+  "reducedMotion": true,
+  "errors": [],
+  "legacyAttempts": 0
+}

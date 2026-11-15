@@ -1,0 +1,37 @@
+Created a new isolated local SQL testing database and scoped temporary login. Credentials withheld.
+
+> lapis@0.1.0 test:browser
+> node --conditions=react-server --import tsx --test tests/backend/browser.integration.test.mjs
+
+▶ Phase7 actual Chrome browser: empty bilingual site, dashboard CRUD, media, restart and performance
+  ✔ empty public pages render in Arabic and English with metadata and sitemap (22489.1155ms)
+  ✔ mobile layout at 390x844 has no settled horizontal overflow (2144.3556ms)
+  ✔ unauthorized pages/APIs are rejected; invalid login fails then secure SuperAdmin login succeeds (2596.6788ms)
+  ✔ Services first record create/read/update through unchanged form and table (1299.1322ms)
+  ✔ FAQs first record create/read/update through unchanged form and table (996.4506ms)
+  ✔ OurSpecialists first record create/read/update through unchanged form and table (1136.4406ms)
+  ✔ Testimonials first record create/read/update through unchanged form and table (1013.4376ms)
+  ✔ Galleries first record create/read/update through unchanged form and table (1200.3537ms)
+  ✔ YouTubeGalleries first record create/read/update through unchanged form and table (983.0319ms)
+  ✔ BlogPosts first record create/read/update through unchanged form and table (1773.151ms)
+  ✔ settings UI saves first values and invalidates public cache; uploaded image renders publicly (1660.6694ms)
+  ✔ measured startup/RSS/warm reads/concurrent reads/SQL sessions and UI image upload memory (2964.8943ms)
+  ✔ media bytes, ETag and Range persist across complete application restart; browser session restores (1510.1888ms)
+  ✔ BlogPosts delete through existing confirmation UI (879.0078ms)
+  ✔ YouTubeGalleries delete through existing confirmation UI (668.4176ms)
+  ✔ Galleries delete through existing confirmation UI (665.9967ms)
+  ✔ Testimonials delete through existing confirmation UI (579.9361ms)
+  ✔ OurSpecialists delete through existing confirmation UI (580.0046ms)
+  ✔ FAQs delete through existing confirmation UI (643.317ms)
+  ✔ Services delete through existing confirmation UI (652.9763ms)
+  ✔ UI logout revokes SQL session and protected routes fail; no legacy calls or browser exceptions (798.2686ms)
+{"evidence":"C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-evidence.json","artifactDirectory":"C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-2rkB7E","browser":"157.0.8103.51","steps":21,"legacyAttempts":0}
+✔ Phase7 actual Chrome browser: empty bilingual site, dashboard CRUD, media, restart and performance (52447.1875ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 53819.9687

@@ -1,0 +1,138 @@
+const brandKeywords = [
+  "LAPiS Dental Lab",
+  "Lapis Dental Lab",
+  "lapisdent",
+  "lapisdent.com",
+  "لابيس لمختبر الأسنان",
+  "مختبر لابيس للأسنان",
+  "LAPiS Dental Lab Aleppo",
+  "Lapis dental lab Aleppo Syria",
+  "لابيس لمخبر الأسنان في حلب",
+  "مخبر لابيس للأسنان حلب",
+];
+
+const dentalLabKeywords = [
+  "dental lab",
+  "dental laboratory",
+  "digital dental lab",
+  "cosmetic dental lab",
+  "dental restorations",
+  "CAD CAM dental lab",
+  "zirconia crowns",
+  "Emax veneers",
+  "dental crowns",
+  "dental bridges",
+  "implant restorations",
+  "Hollywood smile lab",
+  "dental lab in Aleppo",
+  "dental laboratory Aleppo Syria",
+  "digital dental lab Aleppo",
+  "CAD CAM dental lab Aleppo",
+  "مختبر أسنان",
+  "مخبر أسنان",
+  "مختبر أسنان في سوريا",
+  "مختبر أسنان في حلب",
+  "مخبر أسنان في حلب",
+  "مخبر تعويضات سنية حلب",
+  "مخبر أسنان رقمي حلب",
+  "ترميمات الأسنان",
+  "تركيبات الأسنان",
+  "تعويضات سنية",
+  "تيجان زيركون",
+  "تلبيسات زيركون",
+  "قشور إيماكس",
+  "ابتسامة هوليوود",
+];
+
+export const homeKeywords = [
+  ...brandKeywords,
+  ...dentalLabKeywords,
+  "dental lab for dentists",
+  "dental laboratory for clinics",
+  "dental lab for dentists in Aleppo Syria",
+  "مختبر أسنان للأطباء",
+  "مختبر أسنان للأطباء في حلب",
+  "خدمات مخبرية لأطباء الأسنان",
+];
+
+export const servicesKeywords = [
+  ...brandKeywords,
+  "dental lab services",
+  "cosmetic dental restorations",
+  "fixed prosthodontics",
+  "removable prosthodontics",
+  "complete dentures",
+  "partial dentures",
+  "surgical guides",
+  "3D printed dental models",
+  "خدمات مختبر الأسنان",
+  "ترميمات تجميلية للأسنان",
+  "تركيبات ثابتة",
+  "تركيبات متحركة",
+  "أطقم أسنان",
+  "نماذج أسنان ثلاثية الأبعاد",
+];
+
+export const aboutKeywords = [
+  ...brandKeywords,
+  "about dental lab",
+  "advanced dental technology",
+  "precision dental restorations",
+  "dental technicians",
+  "من نحن",
+  "تقنيات الأسنان",
+  "فني أسنان",
+  "تقني أسنان",
+];
+
+export const contactKeywords = [
+  ...brandKeywords,
+  "contact dental lab",
+  "dental lab support",
+  "dental laboratory phone",
+  "dental laboratory email",
+  "اتصل بنا",
+  "تواصل مع مختبر الأسنان",
+  "رقم مختبر الأسنان",
+  "بريد مختبر الأسنان",
+];
+
+export const galleryKeywords = [
+  ...brandKeywords,
+  "dental gallery",
+  "before and after teeth",
+  "smile makeover",
+  "hollywood smile",
+  "cosmetic dentistry results",
+  "معرض الأسنان",
+  "قبل وبعد الأسنان",
+  "ابتسامة هوليوود",
+  "تجميل الأسنان",
+];
+
+export const youtubeVideosKeywords = [
+  ...brandKeywords,
+  "dental lab videos",
+  "LAPiS YouTube videos",
+  "dental education videos",
+  "dental laboratory tutorials",
+  "فيديوهات لابيس",
+  "فيديوهات مختبر الأسنان",
+  "فيديوهات تعليمية للأسنان",
+];
+
+export const blogKeywords = [
+  ...brandKeywords,
+  ...dentalLabKeywords,
+  "dental blog",
+  "dental lab blog",
+  "LAPiS blog",
+  "dental laboratory articles",
+  "dental restoration insights",
+  "digital dentistry articles",
+  "مقالات طب الأسنان",
+  "مدونة مختبر الأسنان",
+  "مدونة لابيس",
+  "مقالات مختبر الأسنان",
+  "مقالات ترميم الأسنان",
+];

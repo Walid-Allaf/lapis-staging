@@ -1,0 +1,441 @@
+Phase7A local test transcripts, 2026-11-11. No production/hosted writes. Latest browser run fails mobile width.
+
+===== test-dashboard-auth =====
+
+> lapis@0.1.0 test:dashboard-auth
+> node --test tests/dashboard-auth.test.mjs
+
+✔ accepts only the currently configured administrator roles (0.9041ms)
+✔ preserves internal dashboard destinations and query strings (0.2952ms)
+✔ rejects external, ambiguous, escaping, and login-loop redirects (0.2031ms)
+✔ parses API UTC timestamps consistently and fails closed on missing expiry (0.2118ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 291.7382
+
+===== test-sanitize =====
+
+> lapis@0.1.0 test:sanitize
+> node --test tests/sanitize.test.mjs
+
+✔ removes executable elements and their contents (3.545ms)
+✔ rejects dangerous URLs, event attributes and protocol tricks (1.607ms)
+✔ keeps safe image and link attributes and hardens new tabs (0.8269ms)
+✔ preserves benign StarterKit text and elements with documented HTML normalization (0.9531ms)
+✔ repairs malformed nesting and never retains active malformed markup (0.6413ms)
+✔ empty, null and undefined values produce empty strings (0.0964ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 364.4871
+
+===== test-dashboard-proxy =====
+
+> lapis@0.1.0 test:dashboard-proxy
+> node --test tests/dashboard-proxy.test.mjs
+
+✔ proxy path validation rejects traversal, delimiters and alternate origins (1.5293ms)
+✔ allowlist is method and endpoint specific, with no auth relay (0.5091ms)
+✔ mutations require same-origin Origin or Referer (3.1826ms)
+✔ cookie claims fail closed and expose only the session projection (1.1957ms)
+✔ streams an exact-limit file including multipart framing, rejects one extra byte (36.0759ms)
+✔ JSON bodies are bounded without accumulating the request (2.6463ms)
+✔ background unauthenticated checks preserve an intentional logout (9.0522ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1167.8639
+
+===== test-db =====
+
+> lapis@0.1.0 test:db
+> node --conditions=react-server --import tsx --test tests/backend/config.test.mjs tests/backend/database.test.mjs tests/backend/migrations.test.mjs tests/backend/health.test.mjs
+
+✔ configuration defaults keep TLS verification and bounded pooling (1.5785ms)
+✔ missing/invalid variables fail without leaking credentials (1.324ms)
+✔ local self-signed trust is explicit; production cannot disable TLS validation (0.3449ms)
+✔ writes require matching database acknowledgement and separate operation flags (1.0567ms)
+✔ integration tests cannot target arbitrary existing databases (0.5466ms)
+✔ concurrent callers share a single pool; shutdown waits for connection (0.8961ms)
+✔ failed connection closes the pool and allows a later retry with safe errors (0.5555ms)
+✔ query binds typed Unicode data separately from SQL and rejects ambiguous parameters (0.6533ms)
+✔ transaction commits successful work and rolls back failed work (0.6536ms)
+✔ automatic XACT_ABORT rollback is not rolled back twice; rollback failures surface (0.2625ms)
+✔ application lock negative return codes fail closed (0.3954ms)
+✔ a lost lock-owning session cannot authorize another migration file (0.3265ms)
+✔ write target checks actual DB_NAME before a write, not just environment labels (0.3583ms)
+✔ health distinguishes connectivity from schema readiness without doing migrations (1.3194ms)
+✔ health masks driver errors, missing credentials and migration failures (0.4948ms)
+✔ unconfigured route stays available with safe 503 and no-store (14.0141ms)
+✔ catalog orders numeric versions, hashes exact bytes, and detects modified files (15.7682ms)
+✔ catalog rejects duplicate/gapped/invalid version filenames (12.2043ms)
+✔ migration batches reject reset/transaction/GO directives but allow quoted words (0.9764ms)
+✔ failed/interrupted attempts, missing source and out-of-order history block reruns (5.7699ms)
+✔ all seven reviewed additive migrations are executable single batches (2.6828ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 656.4079
+
+===== test-auth =====
+
+> lapis@0.1.0 test:auth
+> node --conditions=react-server --import tsx --test tests/backend/auth.test.mjs
+
+✔ auth secrets are mandatory, independent, and rotation keys are explicit (1.3551ms)
+✔ signed JWT verifies and projects through the unchanged dashboard decoder (445.2748ms)
+✔ tampering, unsigned JWTs, wrong issuer/audience/kid/algorithm are rejected (4.1116ms)
+✔ expired and not-yet-valid tokens fail; retired key works only while retained (1.9809ms)
+✔ legacy .NET claim aliases work with cryptographic verification; conflicting aliases fail (1.5104ms)
+✔ scrypt hashes are salted; invalid and unknown hashes cannot authenticate (1290.3358ms)
+✔ Swagger optional/null/required/casing and closed-object constraints remain explicit (4.5077ms)
+✔ literal dotted queries and new pagination/sort policy parse without interpolation (1.5384ms)
+✔ missing/unknown roles and unresolved/disabled/unconfirmed states fail closed (0.2226ms)
+✔ HTTP boundary rejects malformed/oversized input without reflecting data or opening SQL (6.3718ms)
+✔ SMTP absence fails safely; no development mail bypass exists in runtime factory (0.1972ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2929.3736
+
+===== test-content =====
+
+> lapis@0.1.0 test:content
+> node --conditions=react-server --import tsx --test tests/backend/content.test.mjs
+
+✔ all 43 content method/path operations have Node.js Route Handlers independently of Phase 5 upload (3.2543ms)
+✔ each module keeps Swagger keys, nullable fields, int32 and every numeric sort value (14.3759ms)
+✔ compatibility tolerances are limited to create isActive, update id and testimonial starNumber (2.4603ms)
+✔ dotted query names and frontend case aliases work while legacy perPage/page remain ignored (1.517ms)
+✔ blog status/featured filters preserve numeric enum and stable slugs preserve Unicode (1.9335ms)
+✔ DTOs preserve date precision/offset convention and testimonial response alias without SQL internals (0.6642ms)
+✔ only canonical Manager/SuperAdmin can administer content; User admin policy is not changed (0.182ms)
+✔ HTTP method/auth/body/validation failures stay structured and do not leak driver details (7.4535ms)
+✔ content JSON framing is bounded and rejects malformed/unsupported input before SQL (7.8151ms)
+✔ DELETE accepts an empty transport stream and rejects actual request bytes before SQL (1.01ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 790.0418
+
+===== test-files =====
+
+> lapis@0.1.0 test:files
+> node --conditions=react-server --import tsx --test tests/backend/files.test.mjs
+
+✔ exact Swagger upload route and public serving use Node runtime and preserve frontend envelope (22.7062ms)
+✔ JPEG/PNG/WebP/GIF and conservative PDF signatures/containers validate; mismatches/truncation reject (4.7033ms)
+✔ one multipart file streams faithfully including one-byte boundaries and ignores unsafe original path (5.9134ms)
+✔ multipart rejects wrong/missing/multiple/empty files, malformed framing, unsupported transport and oversized bodies (37.1375ms)
+✔ upload failures use string error and message alias, reject unsigned requests and hide private diagnostics (1.8552ms)
+✔ storage paths fail closed inside deployment, drive roots, relative paths and missing configuration (0.3697ms)
+✔ persistent storage is exclusive, syncs bytes/hash, prevents symlinks and never overwrites a collision (34.1794ms)
+✔ filesystem failures and interrupted multipart do not produce upload success (2.8621ms)
+✔ public delivery verifies metadata/bytes and safely implements GET/HEAD/ranges/conditionals/404 (59.6135ms)
+✔ actual unchanged ImageUpload creates file FormData and consumes numeric fileId/filePath (80.371ms)
+✔ actual ImageUpload failure branch consumes string errors and clears field without false success (19.5961ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1364.9297
+
+===== test-integration =====
+
+> lapis@0.1.0 test:integration
+> node --conditions=react-server --import tsx --test tests/backend/integration.test.mjs
+
+{"event":"public_backend_error","operation":"/api/Services/get-all","status":503}
+✔ internal registry exactly covers all57 original operations and does not infer arbitrary modules (5.9641ms)
+✔ origin validation rejects legacy host, untrusted cleartext, paths, credentials and unsafe production defaults (0.4886ms)
+✔ public transport preserves query omission/casing,60s tags and private-cache separation without HTTP (60.0179ms)
+✔ public error behavior remains an exception; failures are never cached as empty success (18.056ms)
+✔ all original public tags remain, specialist mutation also invalidates blog and no user/auth data tags exist (0.2892ms)
+✔ runtime adapters contain no legacy fetch fallback; frozen dashboard39-rule allowlist remains unchanged (28.4727ms)
+✔ configured application origin preserves strict CSRF despite Next loopback normalization/IIS listener differences (8.5259ms)
+✔ import dry run preserves proposed numeric identity mapping without writes or fabricated source data (2.1634ms)
+✔ import dry run detects duplicate IDs/slugs, missing file/author references and unverified media hashes (1.6764ms)
+✔ import dry run rejects invalid export versions and records incomplete protected datasets as unresolved (0.2453ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1465.3194
+
+===== db-sql =====
+Created a new isolated local SQL testing database and scoped temporary login. Credentials withheld.
+
+> lapis@0.1.0 test:db:integration
+> node --conditions=react-server --import tsx --test tests/backend/sql.integration.test.mjs
+
+▶ real SQL Server foundation (requires a new disposable database)
+  ✔ connectivity and uninitialized schema status (32.4519ms)
+  ✔ initialize seven real migrations and rerun without executing them again (324.6427ms)
+  ✔ actual health handler returns safe current status with no-store (15.1999ms)
+  ✔ parameterized Unicode round trip and rollback against real SQL tables (43.5871ms)
+  ✔ schema stores unbounded external IDs, numeric status, nullable flags and restrictive FKs (25.4264ms)
+  ✔ concurrent migration/seed execution is rejected by a real SQL application lock (17.7003ms)
+  ✔ development seed is repeatable and never provisions users/roles/content (25.2438ms)
+  ✔ CLI status/migrate/seed use the same implementation and exit cleanly (2544.9715ms)
+  ✔ real rejected login is sanitized and does not affect the shared working pool (119.2078ms)
+  ✔ applied migration checksum changes block all further work (19.8757ms)
+  ✔ DDL failure rolls back its table, persists failure, and is never auto-retried (46.9572ms)
+✔ real SQL Server foundation (requires a new disposable database) (3599.0988ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4138.9605
+
+===== auth-sql =====
+Created a new isolated local SQL testing database and scoped temporary login. Credentials withheld.
+
+> lapis@0.1.0 test:auth:integration
+> node --conditions=react-server --import tsx --test tests/backend/auth.integration.test.mjs
+
+▶ real SQL authentication/User contracts with isolated test-only mail capture
+  ✔ bootstrap is explicit, one-time, idempotent, and never promotes a registration (1013.9604ms)
+  ✔ registration, duplicate identities and protected salted hashes persist in SQL (715.776ms)
+  ✔ unconfirmed/unknown/wrong-password login fail identically; confirmation is single-use (950.0195ms)
+  ✔ all User reads authenticate; only SuperAdmin lists/looks up arbitrary users (84.2893ms)
+  ✔ profile editing preserves omission/null, rejects privilege fields and isolates ownership (46.2846ms)
+  ✔ profile files require ready metadata owned by the authenticated user (37.9992ms)
+  ✔ password change validates current password and invalidates all prior sessions (1383.7096ms)
+  ✔ OTP cooldown, expiry, attempt cap and purpose binding persist independently of failures (89.5318ms)
+  ✔ reset proofs are single-use and expiry/reset invalidate OTPs and existing sessions (996.7821ms)
+  ✔ concurrent one-step resets consume a code only once (529.9107ms)
+  ✔ only administrators disable/enable other accounts; disabling revokes sessions (540.244ms)
+  ✔ 2FA login foundation requires password plus single-use purpose-2 proof; toggle remains blocked (965.6967ms)
+  ✔ SMTP absence/failure rolls back identity and OTP; no false delivery success (504.9424ms)
+  ✔ Manager presentation role does not grant user administration; unresolved roles deny login (722.3956ms)
+  ✔ parallel duplicate registrations keep one identity and never overwrite credentials (246.0008ms)
+  ✔ SQL rate limiting persists denied attempts and never leaks credentials (2296.484ms)
+  ✔ private admin CLI is idempotent and never prints the operator secret (1937.4356ms)
+  ✔ last enabled administrator survives concurrent disable attempts (502.4472ms)
+✔ real SQL authentication/User contracts with isolated test-only mail capture (14204.5041ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14907.2562
+
+===== content-sql =====
+Created a new isolated local SQL testing database and scoped temporary login. Credentials withheld.
+
+> lapis@0.1.0 test:content:integration
+> node --conditions=react-server --import tsx --test tests/backend/content.integration.test.mjs
+
+▶ Phase 4 real SQL and unchanged frontend contracts, all 43 exported routes
+  ✔ Setting and Client settings: persisted singleton, projections, toggles, nulls and concurrent partial edits (212.4541ms)
+  ✔ Services: all CRUD routes, legacy DTOs, persistence, queries, authorization and rollback (381.1941ms)
+  ✔ FAQs: all CRUD routes, legacy DTOs, persistence, queries, authorization and rollback (240.319ms)
+  ✔ OurSpecialists: all CRUD routes, legacy DTOs, persistence, queries, authorization and rollback (328.4391ms)
+  ✔ Testimonials: all CRUD routes, legacy DTOs, persistence, queries, authorization and rollback (323.8866ms)
+  ✔ Galleries: all CRUD routes, legacy DTOs, persistence, queries, authorization and rollback (294.1723ms)
+  ✔ YouTubeGalleries: all CRUD routes, legacy DTOs, persistence, queries, authorization and rollback (223.4691ms)
+  ✔ BlogPosts: all CRUD routes, legacy DTOs, persistence, queries, authorization and rollback (548.9922ms)
+  ✔ Blog by-slug/status/featured policies, stable URLs, relationship privacy and concurrent uniqueness (138.6006ms)
+  ✔ Ads and Client ads use persisted distinct projections without fabricated file URLs (49.8885ms)
+  ✔ statistics are actual content counts; Manager gains no User-management permission (82.5663ms)
+  ✔ unchanged public API functions consume SQL-backed DTOs and keep existing URL/cache options (484.8772ms)
+  ✔ every documented content operation has a real successful SQL-backed handler exercise (0.2668ms)
+✔ Phase 4 real SQL and unchanged frontend contracts, all 43 exported routes (5377.0531ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6523.2652
+
+===== files-sql =====
+Created a new isolated local SQL testing database and scoped temporary login. Credentials withheld.
+
+> lapis@0.1.0 test:files:integration
+> node --conditions=react-server --import tsx --test tests/backend/files.integration.test.mjs
+
+▶ Phase 5 real SQL, private filesystem, upload/content/frontend contracts and recovery
+  ✔ anonymous/User/tampered tokens cannot upload or initialize disk; Manager and SuperAdmin may upload (342.3887ms)
+  ✔ five actual formats persist accurate metadata/hash/owner and browser retrieval bytes with safe headers (1638.9248ms)
+  ✔ actual ImageUpload component posts FormData to actual route and consumes PNG/PDF results unchanged (109.3795ms)
+  ✔ exact 4 MiB allowed; empty/oversize/multiple/mismatch/unsupported/malformed fail before ready metadata (267.5968ms)
+  ✔ real uploaded IDs work for all Phase 4 file consumers and independent gallery before/after without deletion cascades (155.6324ms)
+  ✔ Phase 3 profile ownership stays enforced for newly uploaded Manager media; User cannot borrow it (23.4305ms)
+  ✔ concurrent uploads have unique exclusive keys and real persisted bytes without overwriting each other (147.8117ms)
+  ✔ SQL key collision and physical destination collision never replace existing media (25.6402ms)
+  ✔ filesystem finalization failure leaves pending, not ready; read-only audit then explicit recovery restores staged bytes (329.4836ms)
+  ✔ real SQL registration/ready-commit failures retain recoverable bytes and never acknowledge success (300.1256ms)
+  ✔ missing/corrupt ready media return 404; repair withdraws state while retaining content references and bytes (183.1905ms)
+  ✔ fresh Node process serves the same SQL-backed bytes after restart; recovery CLI is private and non-destructive (3022.3511ms)
+✔ Phase 5 real SQL, private filesystem, upload/content/frontend contracts and recovery (8621.4522ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9811.0302
+
+===== full-sql =====
+Created a new isolated local SQL testing database and scoped temporary login. Credentials withheld.
+
+> lapis@0.1.0 test:integration:sql
+> node --conditions=react-server --import tsx --test tests/backend/full.integration.test.mjs
+
+▶ Phase6 production Next HTTP cutover with blocked legacy, real SQL/storage and unchanged frontend functions
+  ✔ legacy network blocker is effective; uninitialized public site fails503 instead of empty fallback (1235.5004ms)
+  ✔ real dashboard login/session/current user preserve cookie/projection and deny ordinary User/CSRF (1240.8621ms)
+  ✔ unchanged settings service persists all visibility toggles; public shell contains actual database data (229.901ms)
+  ✔ actual ImageUpload posts streaming multipart through real proxy; PNG/PDF previews and serving work (430.3771ms)
+  ✔ Services full CRUD using actual frozen frontend service functions and real proxy (231.9875ms)
+  ✔ FAQs full CRUD using actual frozen frontend service functions and real proxy (214.0453ms)
+  ✔ OurSpecialists full CRUD using actual frozen frontend service functions and real proxy (214.0217ms)
+  ✔ Testimonials full CRUD using actual frozen frontend service functions and real proxy (188.7029ms)
+  ✔ Galleries full CRUD using actual frozen frontend service functions and real proxy (184.2136ms)
+  ✔ YouTubeGalleries full CRUD using actual frozen frontend service functions and real proxy (184.5763ms)
+  ✔ BlogPosts full CRUD using actual frozen frontend service functions and real proxy (238.2507ms)
+  ✔ all public pages render populated SQL content, blog SEO/JSON-LD/canonical and sitemap retain actual slug (415.1441ms)
+  ✔ public caches invalidate immediately after proxy and direct API mutations, including specialist→blog dependency (238.4374ms)
+  ✔ same-origin Next Image optimizer works without broad hosts; original files survive full Next restart (1304.5086ms)
+  ✔ tampered cookie, SQL expiry, disablement and password change independently invalidate sessions (1419.8038ms)
+  ✔ logout revokes the exact SQL session, clears cookie, remains204 idempotent and replays fail on direct/proxy APIs (112.1122ms)
+{"productionHTTPRequests":109,"legacyAttempts":0,"sqlContent":true,"realBrowser":false,"frontendFunctions":"unchanged","nextImage":"optimized","restartPersistence":true}
+  ✔ database outage fails public readiness/session closed rather than returning empty200; no legacy request occurred (2177.3243ms)
+✔ Phase6 production Next HTTP cutover with blocked legacy, real SQL/storage and unchanged frontend functions (11660.8218ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12785.4714
+
+===== release =====
+Created a new isolated local SQL testing database and scoped temporary login. Credentials withheld.
+
+> lapis@0.1.0 test:release:sql
+> node --conditions=react-server --import tsx --test tests/backend/release.integration.test.mjs
+
+▶ Phase7 production policy on a fresh local SQL staging simulation
+  ✔ preview is read-only; default production and missing authorization remain denied (121.9444ms)
+  ✔ expired and tampered plan files fail closed before schema creation (23.9389ms)
+  ✔ another lock owner prevents migrations; authorized seven checksummed files apply (294.1406ms)
+  ✔ stale plan rejected; fresh current preview supports migration idempotency (47.6105ms)
+  ✔ existing six-version staging fixture refuses pending production migration without matching backup receipt (79.7405ms)
+  ✔ existing database requires reviewed backup receipt; clean initialization creates only neutral records (140.0006ms)
+  ✔ operator supplied first admin is secure, logged and authenticates using production policy (526.7993ms)
+{"productionPolicy":true,"actualProductionTLS":"NOT TESTED: injected local test pool","hostedWrites":0,"importedRows":0}
+  ✔ new plans cannot create another admin or reset existing password; clean init refuses occupied database (526.4233ms)
+✔ Phase7 production policy on a fresh local SQL staging simulation (2108.7499ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2861.7854
+
+===== browser =====
+Created a new isolated local SQL testing database and scoped temporary login. Credentials withheld.
+
+> lapis@0.1.0 test:browser
+> node --conditions=react-server --import tsx --test tests/backend/browser.integration.test.mjs
+
+▶ Phase7 actual Chrome browser: empty bilingual site, dashboard CRUD, media, restart and performance
+  ✔ empty public pages render in Arabic and English with metadata and sitemap (3235.5916ms)
+  ✖ mobile layout at 390x844 has no settled horizontal overflow (9014.1098ms)
+  ✔ unauthorized pages/APIs are rejected; invalid login fails then secure SuperAdmin login succeeds (2543.021ms)
+  ✔ Services first record create/read/update through unchanged form and table (1285.5038ms)
+  ✔ FAQs first record create/read/update through unchanged form and table (962.2044ms)
+  ✔ OurSpecialists first record create/read/update through unchanged form and table (1005.3069ms)
+  ✔ Testimonials first record create/read/update through unchanged form and table (1028.9181ms)
+  ✔ Galleries first record create/read/update through unchanged form and table (1125.2826ms)
+  ✔ YouTubeGalleries first record create/read/update through unchanged form and table (998.0403ms)
+  ✔ BlogPosts first record create/read/update through unchanged form and table (1775.7205ms)
+  ✔ settings UI saves first values and invalidates public cache; uploaded image renders publicly (1676.8015ms)
+  ✔ measured startup/RSS/warm reads/concurrent reads/SQL sessions and UI image upload memory (2839.4364ms)
+  ✔ media bytes, ETag and Range persist across complete application restart; browser session restores (1570.6229ms)
+  ✔ BlogPosts delete through existing confirmation UI (832.6348ms)
+  ✔ YouTubeGalleries delete through existing confirmation UI (729.6903ms)
+  ✔ Galleries delete through existing confirmation UI (576.3009ms)
+  ✔ Testimonials delete through existing confirmation UI (533.3415ms)
+  ✔ OurSpecialists delete through existing confirmation UI (554.3707ms)
+  ✔ FAQs delete through existing confirmation UI (646.8187ms)
+  ✔ Services delete through existing confirmation UI (670.4863ms)
+  ✔ UI logout revokes SQL session and protected routes fail; no legacy calls or browser exceptions (892.029ms)
+{"evidence":"C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-evidence.json","artifactDirectory":"C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-browser-kf3oLR","browser":"157.0.8103.50","steps":21,"legacyAttempts":0}
+✖ Phase7 actual Chrome browser: empty bilingual site, dashboard CRUD, media, restart and performance (39662.4199ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 20
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 41104.2533
+
+✖ failing tests:
+
+test at tests\backend\browser.integration.test.mjs:40:68
+✖ mobile layout at 390x844 has no settled horizontal overflow (9014.1098ms)
+  Error: No settled horizontal overflow
+  
+  No settled horizontal overflow
+  
+  expect(received).toBe(expected) // Object.is equality
+  
+  Expected: true
+  Received: false
+  
+  Call Log:
+  - Timeout 7000ms exceeded while waiting on the predicate
+      at captureRawStack (D:\lapis - Copy\node_modules\playwright-core\lib\coreBundle.js:9551:17)
+      at callMatcherAsStep (D:\lapis - Copy\node_modules\playwright\lib\matchers\expect.js:13342:57)
+      at Object.toBe (D:\lapis - Copy\node_modules\playwright\lib\matchers\expect.js:13334:23)
+      at D:\lapis - Copy\tests\backend\browser.integration.test.mjs:108:156
+      at async TestContext.<anonymous> (D:\lapis - Copy\tests\backend\browser.integration.test.mjs:40:88)
+      at async step (D:\lapis - Copy\tests\backend\browser.integration.test.mjs:40:60)
+      at async TestContext.<anonymous> (D:\lapis - Copy\tests\backend\browser.integration.test.mjs:102:5) {
+    matcherResult: { pass: false, message: 'No settled horizontal overflow\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 7000ms exceeded while waiting on the predicate', name: 'toBe' }
+  }

@@ -1,0 +1,653 @@
+{
+  "evidence": "VERIFIED_FROM_LEGACY_RESPONSE",
+  "date": "2026-11-11",
+  "kind": "structure and primitive types only; NOT raw response records",
+  "profiles": [
+    {
+      "label": "FAQs_list",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "array": [
+            {
+              "id": "number",
+              "questionEn": "string",
+              "questionAr": "string",
+              "answerEn": "string",
+              "answerAr": "string",
+              "createdAt": "string(date-time,no-offset)",
+              "isActive": "boolean"
+            }
+          ]
+        },
+        "error": "null",
+        "paging": {
+          "pageNumber": "number",
+          "pageSize": "number",
+          "totalRecords": "number"
+        }
+      },
+      "status": 200
+    },
+    {
+      "label": "Services_list",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "array": [
+            {
+              "id": "number",
+              "nameAr": "string",
+              "nameEn": "string",
+              "simpleDescriptionAr": "string",
+              "simpleDescriptionEn": "string",
+              "descriptionAr": "string",
+              "descriptionEn": "string",
+              "order": "number",
+              "avatar": {
+                "id": "number",
+                "filePath": "string"
+              },
+              "createdAt": "string(date-time,no-offset)",
+              "isActive": "boolean"
+            },
+            {
+              "id": "number",
+              "nameAr": "string",
+              "nameEn": "string",
+              "simpleDescriptionAr": "string",
+              "simpleDescriptionEn": "string",
+              "descriptionAr": "string",
+              "descriptionEn": "string",
+              "order": "number",
+              "avatar": "null",
+              "createdAt": "string(date-time,no-offset)",
+              "isActive": "boolean"
+            }
+          ]
+        },
+        "error": "null",
+        "paging": {
+          "pageNumber": "number",
+          "pageSize": "number",
+          "totalRecords": "number"
+        }
+      },
+      "status": 200
+    },
+    {
+      "label": "OurSpecialists_list",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "array": [
+            {
+              "id": "number",
+              "nameAr": "string",
+              "nameEn": "string",
+              "descriptionAr": "string",
+              "descriptionEn": "string",
+              "specialistAr": "string",
+              "specialistEn": "string",
+              "image": {
+                "id": "number",
+                "filePath": "string"
+              },
+              "createdAt": "string(date-time,no-offset)",
+              "isActive": "boolean"
+            }
+          ]
+        },
+        "error": "null",
+        "paging": {
+          "pageNumber": "number",
+          "pageSize": "number",
+          "totalRecords": "number"
+        }
+      },
+      "status": 200
+    },
+    {
+      "label": "FAQs_detail",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "id": "number",
+          "questionEn": "string",
+          "questionAr": "string",
+          "answerEn": "string",
+          "answerAr": "string",
+          "createdAt": "string(date-time,no-offset)",
+          "isActive": "boolean"
+        },
+        "error": "null",
+        "paging": "null"
+      },
+      "status": 200
+    },
+    {
+      "label": "Services_detail",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "id": "number",
+          "nameAr": "string",
+          "nameEn": "string",
+          "simpleDescriptionAr": "string",
+          "simpleDescriptionEn": "string",
+          "descriptionAr": "string",
+          "descriptionEn": "string",
+          "order": "number",
+          "avatar": {
+            "id": "number",
+            "filePath": "string"
+          },
+          "createdAt": "string(date-time,no-offset)",
+          "isActive": "boolean"
+        },
+        "error": "null",
+        "paging": "null"
+      },
+      "status": 200
+    },
+    {
+      "label": "OurSpecialists_detail",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "id": "number",
+          "nameAr": "string",
+          "nameEn": "string",
+          "descriptionAr": "string",
+          "descriptionEn": "string",
+          "specialistAr": "string",
+          "specialistEn": "string",
+          "image": {
+            "id": "number",
+            "filePath": "string"
+          },
+          "createdAt": "string(date-time,no-offset)",
+          "isActive": "boolean"
+        },
+        "error": "null",
+        "paging": "null"
+      },
+      "status": 200
+    },
+    {
+      "label": "Testimonials_list",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "array": [
+            {
+              "id": "number",
+              "titleAr": "string",
+              "titleEn": "string",
+              "descriptionAr": "string",
+              "descriptionEn": "string",
+              "starsNumber": "number",
+              "avatar": {
+                "id": "number",
+                "filePath": "string"
+              },
+              "createdAt": "string(date-time,no-offset)",
+              "isActive": "boolean"
+            },
+            {
+              "id": "number",
+              "titleAr": "string",
+              "titleEn": "string",
+              "descriptionAr": "string",
+              "descriptionEn": "string",
+              "starsNumber": "number",
+              "avatar": "null",
+              "createdAt": "string(date-time,no-offset)",
+              "isActive": "boolean"
+            }
+          ]
+        },
+        "error": "null",
+        "paging": {
+          "pageNumber": "number",
+          "pageSize": "number",
+          "totalRecords": "number"
+        }
+      },
+      "status": 200
+    },
+    {
+      "label": "YouTubeGalleries_list",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "array": [
+            {
+              "id": "number",
+              "titleAr": "string",
+              "titleEn": "string",
+              "descriptionAr": "string",
+              "descriptionEn": "string",
+              "videoUrl": "string",
+              "createdAt": "string(date-time,no-offset)",
+              "isActive": "boolean"
+            }
+          ]
+        },
+        "error": "null",
+        "paging": {
+          "pageNumber": "number",
+          "pageSize": "number",
+          "totalRecords": "number"
+        }
+      },
+      "status": 200
+    },
+    {
+      "label": "Galleries_list",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "array": [
+            {
+              "id": "number",
+              "titleAr": "string",
+              "titleEn": "string",
+              "descriptionAr": "string",
+              "descriptionEn": "string",
+              "beforeImage": {
+                "id": "number",
+                "filePath": "string"
+              },
+              "afterImage": {
+                "id": "number",
+                "filePath": "string"
+              },
+              "createdAt": "string(date-time,no-offset)",
+              "isActive": "boolean"
+            }
+          ]
+        },
+        "error": "null",
+        "paging": {
+          "pageNumber": "number",
+          "pageSize": "number",
+          "totalRecords": "number"
+        }
+      },
+      "status": 200
+    },
+    {
+      "label": "Testimonials_detail",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "id": "number",
+          "titleAr": "string",
+          "titleEn": "string",
+          "descriptionAr": "string",
+          "descriptionEn": "string",
+          "starsNumber": "number",
+          "avatar": {
+            "id": "number",
+            "filePath": "string"
+          },
+          "createdAt": "string(date-time,no-offset)",
+          "isActive": "boolean"
+        },
+        "error": "null",
+        "paging": "null"
+      },
+      "status": 200
+    },
+    {
+      "label": "YouTubeGalleries_detail",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "id": "number",
+          "titleAr": "string",
+          "titleEn": "string",
+          "descriptionAr": "string",
+          "descriptionEn": "string",
+          "videoUrl": "string",
+          "createdAt": "string(date-time,no-offset)",
+          "isActive": "boolean"
+        },
+        "error": "null",
+        "paging": "null"
+      },
+      "status": 200
+    },
+    {
+      "label": "Galleries_detail",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "id": "number",
+          "titleAr": "string",
+          "titleEn": "string",
+          "descriptionAr": "string",
+          "descriptionEn": "string",
+          "beforeImage": {
+            "id": "number",
+            "filePath": "string"
+          },
+          "afterImage": {
+            "id": "number",
+            "filePath": "string"
+          },
+          "createdAt": "string(date-time,no-offset)",
+          "isActive": "boolean"
+        },
+        "error": "null",
+        "paging": "null"
+      },
+      "status": 200
+    },
+    {
+      "label": "BlogPosts_list",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "array": [
+            {
+              "id": "number",
+              "titleAr": "string",
+              "titleEn": "string",
+              "slug": "string",
+              "summaryAr": "string",
+              "summaryEn": "string",
+              "contentAr": "string",
+              "contentEn": "string",
+              "ourSpecialistId": "number",
+              "ourSpecialist": {
+                "id": "number",
+                "nameAr": "string",
+                "nameEn": "string",
+                "descriptionAr": "string",
+                "descriptionEn": "string",
+                "specialistAr": "string",
+                "specialistEn": "string",
+                "image": {
+                  "id": "number",
+                  "filePath": "string"
+                },
+                "createdAt": "string(date-time,no-offset)",
+                "isActive": "boolean"
+              },
+              "metaTitleAr": "string",
+              "metaTitleEn": "string",
+              "metaDescriptionAr": "string",
+              "metaDescriptionEn": "string",
+              "status": "number",
+              "isFeatured": "boolean",
+              "order": "number",
+              "image": {
+                "id": "number",
+                "filePath": "string"
+              },
+              "createdAt": "string(date-time,no-offset)",
+              "updatedAt": "string(date-time,no-offset)",
+              "isActive": "boolean"
+            }
+          ]
+        },
+        "error": "null",
+        "paging": {
+          "pageNumber": "number",
+          "pageSize": "number",
+          "totalRecords": "number"
+        }
+      },
+      "status": 200
+    },
+    {
+      "label": "BlogPosts_detail",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "id": "number",
+          "titleAr": "string",
+          "titleEn": "string",
+          "slug": "string",
+          "summaryAr": "string",
+          "summaryEn": "string",
+          "contentAr": "string",
+          "contentEn": "string",
+          "ourSpecialistId": "number",
+          "ourSpecialist": {
+            "id": "number",
+            "nameAr": "string",
+            "nameEn": "string",
+            "descriptionAr": "string",
+            "descriptionEn": "string",
+            "specialistAr": "string",
+            "specialistEn": "string",
+            "image": {
+              "id": "number",
+              "filePath": "string"
+            },
+            "createdAt": "string(date-time,no-offset)",
+            "isActive": "boolean"
+          },
+          "metaTitleAr": "string",
+          "metaTitleEn": "string",
+          "metaDescriptionAr": "string",
+          "metaDescriptionEn": "string",
+          "status": "number",
+          "isFeatured": "boolean",
+          "order": "number",
+          "image": {
+            "id": "number",
+            "filePath": "string"
+          },
+          "createdAt": "string(date-time,no-offset)",
+          "updatedAt": "string(date-time,no-offset)",
+          "isActive": "boolean"
+        },
+        "error": "null",
+        "paging": "null"
+      },
+      "status": 200
+    },
+    {
+      "label": "BlogPosts_slug",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "id": "number",
+          "titleAr": "string",
+          "titleEn": "string",
+          "slug": "string",
+          "summaryAr": "string",
+          "summaryEn": "string",
+          "contentAr": "string",
+          "contentEn": "string",
+          "ourSpecialistId": "number",
+          "ourSpecialist": {
+            "id": "number",
+            "nameAr": "string",
+            "nameEn": "string",
+            "descriptionAr": "string",
+            "descriptionEn": "string",
+            "specialistAr": "string",
+            "specialistEn": "string",
+            "image": {
+              "id": "number",
+              "filePath": "string"
+            },
+            "createdAt": "string(date-time,no-offset)",
+            "isActive": "boolean"
+          },
+          "metaTitleAr": "string",
+          "metaTitleEn": "string",
+          "metaDescriptionAr": "string",
+          "metaDescriptionEn": "string",
+          "status": "number",
+          "isFeatured": "boolean",
+          "order": "number",
+          "image": {
+            "id": "number",
+            "filePath": "string"
+          },
+          "createdAt": "string(date-time,no-offset)",
+          "updatedAt": "string(date-time,no-offset)",
+          "isActive": "boolean"
+        },
+        "error": "null",
+        "paging": "null"
+      },
+      "status": 200
+    },
+    {
+      "label": "/api/Client/get-settings",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "phoneNumber": "string",
+          "email": "string",
+          "address": "string",
+          "aboutUs_Ar": "string",
+          "aboutUs_En": "string",
+          "contactUs_Ar": "string",
+          "contactUs_En": "string",
+          "facebookUrl": "string",
+          "instagramUrl": "string",
+          "twitterUrl": "string",
+          "youtubeUrl": "string",
+          "tiktokUrl": "string",
+          "latitude": "number",
+          "longitude": "number",
+          "faQsTabToggle": "boolean",
+          "servicesTabToggle": "boolean",
+          "galleriesTabToggle": "boolean",
+          "youTubeGalleriesTabToggle": "boolean",
+          "testimonialsTabToggle": "boolean",
+          "ourSpecialistsTabToggle": "boolean"
+        },
+        "error": "null",
+        "paging": "null"
+      },
+      "status": 200
+    },
+    {
+      "label": "/api/Setting/get",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": "null",
+        "error": {
+          "code": "string",
+          "message": "string",
+          "details": "null"
+        },
+        "paging": "null"
+      },
+      "status": 401
+    },
+    {
+      "label": "/api/Client/get-ads",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": {
+          "text": "null",
+          "url": "null",
+          "isActive": "boolean"
+        },
+        "error": "null",
+        "paging": "null"
+      },
+      "status": 200
+    },
+    {
+      "label": "query_invalid_int",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": "null",
+        "error": {
+          "code": "string",
+          "message": "string",
+          "details": "null"
+        },
+        "paging": "null"
+      },
+      "status": 400
+    },
+    {
+      "label": "not_found",
+      "shape": {
+        "isSuccess": "boolean",
+        "data": "null",
+        "error": {
+          "code": "string",
+          "message": "string",
+          "details": "null"
+        },
+        "paging": "null"
+      },
+      "status": 404
+    }
+  ],
+  "dateMetadata": {
+    "date": "2026-11-11",
+    "scope": "GET-only metadata; no record values retained",
+    "results": [
+      {
+        "resource": "Services",
+        "http": 200,
+        "createdAt": {
+          "fractionDigits": 7,
+          "offset": false
+        }
+      },
+      {
+        "resource": "FAQs",
+        "http": 200,
+        "createdAt": {
+          "fractionDigits": 7,
+          "offset": false
+        }
+      },
+      {
+        "resource": "OurSpecialists",
+        "http": 200,
+        "createdAt": {
+          "fractionDigits": 7,
+          "offset": false
+        }
+      },
+      {
+        "resource": "Testimonials",
+        "http": 200,
+        "createdAt": {
+          "fractionDigits": 7,
+          "offset": false
+        }
+      },
+      {
+        "resource": "Galleries",
+        "http": 200,
+        "createdAt": {
+          "fractionDigits": 6,
+          "offset": false
+        }
+      },
+      {
+        "resource": "YouTubeGalleries",
+        "http": 200,
+        "createdAt": {
+          "fractionDigits": 6,
+          "offset": false
+        }
+      },
+      {
+        "resource": "BlogPosts",
+        "http": 200,
+        "createdAt": {
+          "fractionDigits": 7,
+          "offset": false
+        }
+      }
+    ]
+  }
+}

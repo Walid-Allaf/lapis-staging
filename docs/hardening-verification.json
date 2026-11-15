@@ -1,0 +1,350 @@
+{
+  "baseline": {
+    "lintErrors": 0,
+    "lintWarnings": 11,
+    "types": "pass",
+    "build": "pass",
+    "authTests": {
+      "passed": 4,
+      "failed": 1,
+      "reason": "Existing Admin allowance disagreed with old test"
+    }
+  },
+  "final": {
+    "lintErrors": 0,
+    "lintWarnings": 11,
+    "types": "pass",
+    "authTests": 4,
+    "sanitizeTests": 6,
+    "proxyTests": 7,
+    "productionBuild": "pass, restored real API environment",
+    "mockReferencesInBuild": false,
+    "finalSmoke": {
+      "home": 200,
+      "services": 200,
+      "blog": 200,
+      "existingBlogPost": 200,
+      "unknownPublic": 404,
+      "robots": 200,
+      "sitemap": 200,
+      "manifest": 200,
+      "login": 200,
+      "anonymousDeepLink": 307,
+      "anonymousSession": 401
+    }
+  },
+  "authAndProxy": [
+    {
+      "name": "anonymous page gate and legacy storage deletion",
+      "pass": true
+    },
+    {
+      "name": "wrong credentials do not issue a session",
+      "pass": true
+    },
+    {
+      "name": "non-admin and expired login rejected server-side",
+      "pass": true
+    },
+    {
+      "name": "admin UI login, token-free response and httpOnly cookie",
+      "pass": true
+    },
+    {
+      "name": "refresh keeps the session with no JS Authorization or backend API requests",
+      "pass": true
+    },
+    {
+      "name": "cookie jar omits admin cookie on public / and /blog",
+      "pass": true
+    },
+    {
+      "name": "proxy only forwards safe headers and server token",
+      "pass": true
+    },
+    {
+      "name": "proxy rejects traversal, encoded slashes, unknown endpoints and methods",
+      "pass": true
+    },
+    {
+      "name": "CSRF missing/forged origins fail for login logout and proxy writes",
+      "pass": true
+    },
+    {
+      "name": "JSON CRUD and multipart image pass through proxy",
+      "pass": true
+    },
+    {
+      "name": "oversize multipart receives 413",
+      "pass": true
+    },
+    {
+      "name": "upstream timeout maps to 504",
+      "pass": true
+    },
+    {
+      "name": "backend 401 expires cookie and redirects UI",
+      "pass": true
+    },
+    {
+      "name": "expired and non-admin cookie claims reject GET/session",
+      "pass": true
+    },
+    {
+      "name": "ignores redirect https://evil.com",
+      "pass": true
+    },
+    {
+      "name": "ignores redirect //evil.com",
+      "pass": true
+    },
+    {
+      "name": "ignores redirect /dashboardevil",
+      "pass": true
+    },
+    {
+      "name": "ignores redirect /dashboard/../services",
+      "pass": true
+    },
+    {
+      "name": "confirmed logout clears cookie, cache and page access",
+      "pass": true,
+      "evidence": "Separate production logout/navigation/cache regression check"
+    }
+  ],
+  "productionLogout": {
+    "pass": true
+  },
+  "cache": {
+    "results": [
+      {
+        "name": "unchanged public fetch is cached, mutation refreshes next public request",
+        "pass": true
+      },
+      {
+        "name": "settings mutation expires public navigation data on next request",
+        "pass": true
+      },
+      {
+        "name": "dashboard-only headers and public source metadata remain isolated",
+        "pass": true
+      }
+    ],
+    "secureCookieVerified": true
+  },
+  "features": {
+    "results": [
+      {
+        "name": "services list, filter, pagination and image URL",
+        "pass": true
+      },
+      {
+        "name": "services create, validation, upload, editor and mutation",
+        "pass": true
+      },
+      {
+        "name": "services edit and confirm-delete",
+        "pass": true
+      },
+      {
+        "name": "faqs list, filter, pagination and image URL",
+        "pass": true
+      },
+      {
+        "name": "faqs create, validation, upload, editor and mutation",
+        "pass": true
+      },
+      {
+        "name": "faqs edit and confirm-delete",
+        "pass": true
+      },
+      {
+        "name": "our-specialists list, filter, pagination and image URL",
+        "pass": true
+      },
+      {
+        "name": "our-specialists create, validation, upload, editor and mutation",
+        "pass": true
+      },
+      {
+        "name": "our-specialists edit and confirm-delete",
+        "pass": true
+      },
+      {
+        "name": "testimonials list, filter, pagination and image URL",
+        "pass": true
+      },
+      {
+        "name": "testimonials create, validation, upload, editor and mutation",
+        "pass": true
+      },
+      {
+        "name": "testimonials edit and confirm-delete",
+        "pass": true
+      },
+      {
+        "name": "gallery list, filter, pagination and image URL",
+        "pass": true
+      },
+      {
+        "name": "gallery create, validation, upload, editor and mutation",
+        "pass": true
+      },
+      {
+        "name": "gallery edit and confirm-delete",
+        "pass": true
+      },
+      {
+        "name": "youtube-galleries list, filter, pagination and image URL",
+        "pass": true
+      },
+      {
+        "name": "youtube-galleries create, validation, upload, editor and mutation",
+        "pass": true
+      },
+      {
+        "name": "youtube-galleries edit and confirm-delete",
+        "pass": true
+      },
+      {
+        "name": "blog-posts list, filter, pagination and image URL",
+        "pass": true
+      },
+      {
+        "name": "blog-posts create, validation, upload, editor and mutation",
+        "pass": true
+      },
+      {
+        "name": "blog-posts edit and confirm-delete",
+        "pass": true
+      },
+      {
+        "name": "settings load, edit, toggle and save",
+        "pass": true
+      },
+      {
+        "name": "mobile sidebar and horizontally scrolling table",
+        "pass": true
+      }
+    ],
+    "errors": []
+  },
+  "targetedRegressions": {
+    "results": [
+      {
+        "name": "number wheel blurs, dialog has an accessible title",
+        "pass": true
+      },
+      {
+        "name": "settings decimal inputMode remains intact",
+        "pass": true
+      },
+      {
+        "name": "custom rowIdKey selection callback and pagination",
+        "pass": true
+      },
+      {
+        "name": "mobile hydration and sidebar open-close",
+        "pass": true
+      },
+      {
+        "name": "benign content wrapper DOM is identical, sanitized XSS is inert",
+        "pass": true
+      }
+    ],
+    "errors": []
+  },
+  "realDataSanitization": [
+    {
+      "slug": "string",
+      "field": "contentAr",
+      "identical": true,
+      "originalBytes": 6,
+      "cleanBytes": 6,
+      "originalTags": [],
+      "removedClassCount": 0
+    },
+    {
+      "slug": "string",
+      "field": "contentEn",
+      "identical": true,
+      "originalBytes": 6,
+      "cleanBytes": 6,
+      "originalTags": [],
+      "removedClassCount": 0
+    },
+    {
+      "slug": "string",
+      "field": "specialistAr",
+      "identical": true,
+      "originalBytes": 102,
+      "cleanBytes": 102,
+      "originalTags": [
+        "p"
+      ],
+      "removedClassCount": 0
+    },
+    {
+      "slug": "string",
+      "field": "specialistEn",
+      "identical": true,
+      "originalBytes": 145,
+      "cleanBytes": 145,
+      "originalTags": [
+        "p"
+      ],
+      "removedClassCount": 0
+    },
+    {
+      "slug": "it-happened-on-medium-in-2024",
+      "field": "contentAr",
+      "identical": true,
+      "originalBytes": 6806,
+      "cleanBytes": 6806,
+      "originalTags": [
+        "p",
+        "strong"
+      ],
+      "removedClassCount": 0
+    },
+    {
+      "slug": "it-happened-on-medium-in-2024",
+      "field": "contentEn",
+      "identical": false,
+      "originalBytes": 15855,
+      "cleanBytes": 15561,
+      "originalTags": [
+        "p",
+        "a",
+        "u",
+        "br",
+        "ul",
+        "li"
+      ],
+      "removedClassCount": 59
+    },
+    {
+      "slug": "it-happened-on-medium-in-2024",
+      "field": "specialistAr",
+      "identical": true,
+      "originalBytes": 105,
+      "cleanBytes": 105,
+      "originalTags": [],
+      "removedClassCount": 0
+    },
+    {
+      "slug": "it-happened-on-medium-in-2024",
+      "field": "specialistEn",
+      "identical": true,
+      "originalBytes": 162,
+      "cleanBytes": 162,
+      "originalTags": [],
+      "removedClassCount": 0
+    }
+  ],
+  "notes": [
+    "Mock-only credentials and mutations; no real authenticated API calls.",
+    "Only sanitized summaries retained; no cookie tokens or raw request headers saved.",
+    "Final build restored to real environment after test processes stop."
+  ]
+}

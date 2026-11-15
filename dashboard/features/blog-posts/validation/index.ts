@@ -1,0 +1,1 @@
+export { default as BlogPostsSchema } from './blog-posts-validation';

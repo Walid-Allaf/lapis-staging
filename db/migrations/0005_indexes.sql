@@ -1,0 +1,24 @@
+CREATE INDEX IX_Users_RoleId ON dbo.Users(RoleId);
+CREATE INDEX IX_Users_FileId ON dbo.Users(FileId);
+CREATE INDEX IX_AuthSessions_UserExpiry ON dbo.AuthSessions(UserKey,ExpiresAtUtc);
+CREATE INDEX IX_OtpChallenges_EmailPurpose ON dbo.OtpChallenges(EmailHash,Purpose,ExpiresAtUtc);
+CREATE INDEX IX_OtpChallenges_UserKey ON dbo.OtpChallenges(UserKey);
+CREATE INDEX IX_SecurityEvents_Actor ON dbo.SecurityEvents(ActorUserKey,OccurredAtUtc);
+CREATE INDEX IX_Files_CreatedBy ON dbo.Files(CreatedByUserKey);
+CREATE INDEX IX_Services_PublicOrder ON dbo.Services(IsActive,SortOrder,Id);
+CREATE INDEX IX_Services_FileId ON dbo.Services(FileId);
+CREATE INDEX IX_OurSpecialists_Public ON dbo.OurSpecialists(IsActive,CreatedAtUtc,Id);
+CREATE INDEX IX_OurSpecialists_FileId ON dbo.OurSpecialists(FileId);
+CREATE INDEX IX_FAQs_Public ON dbo.FAQs(IsActive,CreatedAtUtc,Id);
+CREATE INDEX IX_Galleries_Public ON dbo.Galleries(IsActive,CreatedAtUtc,Id);
+CREATE INDEX IX_Galleries_Before ON dbo.Galleries(BeforeFileId);
+CREATE INDEX IX_Galleries_After ON dbo.Galleries(AfterFileId);
+CREATE INDEX IX_YouTubeGalleries_Public ON dbo.YouTubeGalleries(IsActive,CreatedAtUtc,Id);
+CREATE INDEX IX_Testimonials_Public ON dbo.Testimonials(IsActive,CreatedAtUtc,Id);
+CREATE INDEX IX_Testimonials_FileId ON dbo.Testimonials(FileId);
+CREATE INDEX IX_BlogPosts_Public ON dbo.BlogPosts(IsActive,Status,IsFeatured,SortOrder,Id);
+CREATE INDEX IX_BlogPosts_Specialist ON dbo.BlogPosts(OurSpecialistId);
+CREATE INDEX IX_BlogPosts_FileId ON dbo.BlogPosts(FileId);
+-- Deliberately non-unique until slug normalization/lifecycle rules are established.
+CREATE INDEX IX_BlogPosts_SlugHash ON dbo.BlogPosts(SlugHash);
+CREATE INDEX IX_Ads_FileId ON dbo.Ads(FileId);

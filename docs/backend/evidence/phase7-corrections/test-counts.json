@@ -1,0 +1,92 @@
+{
+  "test-dashboard-auth": {
+    "tests": 4,
+    "pass": 4,
+    "fail": 0,
+    "skipped": 0
+  },
+  "test-sanitize": {
+    "tests": 6,
+    "pass": 6,
+    "fail": 0,
+    "skipped": 0
+  },
+  "test-dashboard-proxy": {
+    "tests": 7,
+    "pass": 7,
+    "fail": 0,
+    "skipped": 0
+  },
+  "test-db": {
+    "tests": 21,
+    "pass": 21,
+    "fail": 0,
+    "skipped": 0
+  },
+  "test-auth": {
+    "tests": 11,
+    "pass": 11,
+    "fail": 0,
+    "skipped": 0
+  },
+  "test-content": {
+    "tests": 10,
+    "pass": 10,
+    "fail": 0,
+    "skipped": 0
+  },
+  "test-files": {
+    "tests": 11,
+    "pass": 11,
+    "fail": 0,
+    "skipped": 0
+  },
+  "test-integration": {
+    "tests": 10,
+    "pass": 10,
+    "fail": 0,
+    "skipped": 0
+  },
+  "db-sql": {
+    "tests": 12,
+    "pass": 12,
+    "fail": 0,
+    "skipped": 0
+  },
+  "auth-sql": {
+    "tests": 19,
+    "pass": 19,
+    "fail": 0,
+    "skipped": 0
+  },
+  "content-sql": {
+    "tests": 14,
+    "pass": 14,
+    "fail": 0,
+    "skipped": 0
+  },
+  "files-sql": {
+    "tests": 13,
+    "pass": 13,
+    "fail": 0,
+    "skipped": 0
+  },
+  "release-sql": {
+    "tests": 9,
+    "pass": 9,
+    "fail": 0,
+    "skipped": 0
+  },
+  "full-sql": {
+    "tests": 18,
+    "pass": 18,
+    "fail": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "tests": 22,
+    "pass": 22,
+    "fail": 0,
+    "skipped": 0
+  }
+}

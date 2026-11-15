@@ -1,0 +1,2 @@
+# Migration checksums must survive Windows and hosting Git checkouts unchanged.
+db/migrations/*.sql text eol=lf

@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-12",
+  "status": "BLOCKED",
+  "temporaryLoginsDisabled": 0,
+  "privateCredentialFilesRemoved": 0,
+  "generatedLocalTestTargetsRemaining": 28,
+  "privateCredentialFilesRemaining": 7,
+  "databaseDeletionAttempted": false,
+  "rejectedActions": [
+    "Combined disable of metadata-verified Phase7 local test logins and removal of their private temporary credential files",
+    "Narrower removal of the seven individually named private Phase7 temporary credential files"
+  ],
+  "automaticReviewReason": "blocked by policy; no more detailed reason supplied",
+  "metadataLocation": "%TEMP%/lapis-phase7-*-created.json",
+  "credentialLocation": "%TEMP%/lapis-phase7-*-test-env.json",
+  "credentialAcl": "Provisioned with protected operator-only FullControl ACL; values never printed",
+  "scope": "Only generated local Phase7 test targets; no production or existing development accounts",
+  "previousObservation": {
+    "date": "2026-11-11",
+    "generatedLocalTestTargetsRemaining": 20,
+    "privateCredentialFilesRemaining": 7
+  },
+  "correctionApproval": {
+    "policy": "never",
+    "applicableNarrowerApprovalToolAvailable": false,
+    "separateApprovalsRequested": false,
+    "positiveTargetConfirmationsReceived": false,
+    "mutationAttempts": 0
+  },
+  "readOnlyVerification": {
+    "localInstance": ".\\SQLEXPRESS",
+    "targets": 28,
+    "present": 28,
+    "disabled": 0,
+    "protectedCredentialFiles": 7
+  },
+  "inventory": "phase7-corrections/cleanup-inventory.json",
+  "manualInstructions": "../PHASE7_LOCAL_CLEANUP.md",
+  "reason": "Prior automatic review rejection remains in force. No authorized narrower approval-request mechanism is available; no cleanup mutation retried or bypassed."
+}

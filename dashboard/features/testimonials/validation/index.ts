@@ -1,0 +1,1 @@
+export { default as TestimonialsSchema } from './testimonials-validation';

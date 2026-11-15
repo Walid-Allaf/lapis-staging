@@ -1,0 +1,5 @@
+
+> lapis@0.1.0 test:mobile
+> node --conditions=react-server --import tsx scripts/test/mobile-diagnostics.mjs
+
+{"directory":"C:\\Users\\walid\\AppData\\Local\\Temp\\lapis-phase7-mobile-after-rVvLF0","cases":36,"failures":[],"errors":[],"legacyAttempts":0}

@@ -1,0 +1,1 @@
+export { default as GallerySchema } from './gallery-validation';

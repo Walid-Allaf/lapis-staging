@@ -1,0 +1,365 @@
+# Dashboard merge inventory
+
+Source: D:/lapis-dashboard - Copy (read-only; _legacy-dashboard/ was absent).
+
+Baseline: lint passed (two unused-symbol warnings in components/service-card.tsx); TypeScript passed; Next 16.2.7 production build passed. All eight public page routes were dynamic; metadata routes were static. Baseline HTTP/browser snapshots saved in the local temporary lapis-merge folder.
+
+## Dependency delta (recorded before installation)
+
+- @radix-ui/react-avatar: ^1.1.10
+- @radix-ui/react-checkbox: ^1.3.3
+- @radix-ui/react-collapsible: ^1.1.12
+- @radix-ui/react-dialog: ^1.1.15
+- @radix-ui/react-dropdown-menu: ^2.1.16
+- @radix-ui/react-label: ^2.1.7
+- @radix-ui/react-popover: ^1.1.15
+- @radix-ui/react-select: ^2.2.6
+- @radix-ui/react-separator: ^1.1.7
+- @radix-ui/react-slot: ^1.2.3
+- @radix-ui/react-switch: ^1.2.6
+- @radix-ui/react-tooltip: ^1.2.8
+- @tanstack/react-query: ^5.90.20
+- @tanstack/react-table: ^8.21.3
+- @tiptap/react: ^3.20.0
+- @tiptap/starter-kit: ^3.20.0
+- axios: ^1.11.0
+- class-variance-authority: ^0.7.1
+- clsx: ^2.1.1
+- cmdk: ^1.1.1
+- formik: ^2.4.6
+- lucide-react: ^0.544.0
+- react-i18next: ^14.1.2
+- sonner: ^2.0.7
+- tailwind-merge: ^3.3.1
+- yup: ^1.4.0
+- zustand: ^5.0.8
+- @tiptap/pm: ^3.20.0
+- tw-animate-css: ^1.4.0
+
+Retain website React 19.2.4, React DOM, i18next 26.3.1, TypeScript, Tailwind 4, and React 19 types. react-i18next 14.1.2 peers require i18next >=23.2.3, so no conflict or override is needed. Do not install routing, theme, calendar, chart, phone/date input, number-to-words, or legacy build tooling. Keep @tiptap/pm as required by the editor.
+
+## Reachable source files
+
+Named barrel exports were followed individually; unused exports were trimmed. Unused helpers and their imports in utils/index.ts were omitted. The old layout switcher is superseded by the combined sidebar. assets/index.ts will expose only used public assets. pdf.png is used by image-upload.tsx. Login, auth, routing, and provider files are adapted rather than copied verbatim.
+
+- features/login/index.tsx
+- features/services/index.tsx
+- features/faqs/index.tsx
+- features/our-specialists/index.tsx
+- features/testimonials/index.tsx
+- features/gallery/index.tsx
+- features/youtube-galleries/index.tsx
+- features/blog-posts/index.tsx
+- features/setting/index.tsx
+- layouts/main-layout-components/main-layout.tsx
+- components/ui/circular-spinner.tsx
+- components/shadcn-ui/sonner.tsx
+- lib/react-query.ts
+- assets/index.ts
+- components/index.ts
+- components/shadcn-ui/grid.tsx
+- components/shadcn-ui/loading-button.tsx
+- features/login/hooks/index.ts
+- features/login/validation/index.ts
+- stores/index.ts
+- features/services/components/index.ts
+- features/services/interfaces/index.ts
+- features/services/hooks/index.ts
+- features/services/constants/index.ts
+- features/faqs/components/index.ts
+- features/faqs/interfaces/index.ts
+- features/faqs/constants/index.ts
+- features/faqs/hooks/index.ts
+- features/our-specialists/components/index.ts
+- features/our-specialists/interfaces/index.ts
+- features/our-specialists/constants/index.ts
+- features/our-specialists/hooks/index.ts
+- features/testimonials/components/index.ts
+- features/testimonials/interfaces/index.ts
+- features/testimonials/constants/index.ts
+- features/testimonials/hooks/index.ts
+- features/gallery/components/index.ts
+- features/gallery/interfaces/index.ts
+- features/gallery/constants/index.ts
+- features/gallery/hooks/index.ts
+- features/youtube-galleries/components/index.ts
+- features/youtube-galleries/interfaces/index.ts
+- features/youtube-galleries/constants/index.ts
+- features/youtube-galleries/hooks/index.ts
+- features/blog-posts/components/index.ts
+- features/blog-posts/interfaces/index.ts
+- features/blog-posts/constants/index.ts
+- features/blog-posts/hooks/index.ts
+- features/setting/components/index.ts
+- features/setting/interfaces/index.ts
+- features/setting/hooks/index.ts
+- features/setting/validation/index.ts
+- components/shadcn-ui/sidebar.tsx
+- lib/utils.ts
+- components/shadcn-ui/separator.tsx
+- layouts/main-layout-components/search-dialog.tsx
+- layouts/main-layout-components/app-sidebar.tsx
+- layouts/main-layout-components/nav-main.tsx
+- assets/images/logo-black-bg-vertical.svg
+- assets/images/logo-white-bg-vertical.svg
+- assets/images/logo-white-bg-horizontal.svg
+- assets/images/logo-white-bg.svg
+- assets/images/pdf.png
+- components/titles/error-massage.tsx
+- components/toolbar-actions/toggle-full-screen.tsx
+- components/toolbar-actions/toolbar-menu.tsx
+- components/dialogs/confirm-dialog.tsx
+- components/form/input-field.tsx
+- components/ui/data-table.tsx
+- components/ui/form-loading.tsx
+- components/ui/main-container.tsx
+- components/ui/spacer.tsx
+- features/login/hooks/use-authentication.tsx
+- features/login/validation/login-schema.ts
+- stores/use-confirmation-store.ts
+- features/services/components/services-filters.tsx
+- features/services/components/services-create-update-dialog.tsx
+- features/services/interfaces/services-filters-request-interface.ts
+- features/services/interfaces/services-open-create-update-interface.ts
+- features/services/hooks/use-services.tsx
+- features/services/hooks/use-services-update.tsx
+- features/services/constants/services-columns.tsx
+- features/services/constants/services-initial-filters-values.ts
+- features/services/constants/services-create-update-initial-values.ts
+- features/faqs/components/faqs-filters.tsx
+- features/faqs/components/faqs-create-update-dialog.tsx
+- features/faqs/interfaces/faqs-filters-request-interface.ts
+- features/faqs/interfaces/faqs-open-create-update-interface.ts
+- features/faqs/constants/faqs-columns.tsx
+- features/faqs/constants/faqs-initial-filters-values.ts
+- features/faqs/constants/faqs-create-update-initial-values.ts
+- features/faqs/hooks/use-faqs.tsx
+- features/faqs/hooks/use-faqs-update.tsx
+- features/our-specialists/components/our-specialists-filters.tsx
+- features/our-specialists/components/our-specialists-create-update-dialog.tsx
+- features/our-specialists/interfaces/our-specialists-filters-request-interface.ts
+- features/our-specialists/interfaces/our-specialists-open-create-update-interface.ts
+- features/our-specialists/constants/our-specialists-columns.tsx
+- features/our-specialists/constants/our-specialists-initial-filters-values.ts
+- features/our-specialists/constants/our-specialists-create-update-initial-values.ts
+- features/our-specialists/hooks/use-our-specialists.tsx
+- features/our-specialists/hooks/use-our-specialists-update.tsx
+- features/testimonials/components/testimonials-filters.tsx
+- features/testimonials/components/testimonials-create-update-dialog.tsx
+- features/testimonials/interfaces/testimonials-filters-request-interface.ts
+- features/testimonials/interfaces/testimonials-open-create-update-interface.ts
+- features/testimonials/constants/testimonials-columns.tsx
+- features/testimonials/constants/testimonials-initial-filters-values.ts
+- features/testimonials/constants/testimonials-create-update-initial-values.ts
+- features/testimonials/hooks/use-testimonials.tsx
+- features/testimonials/hooks/use-testimonials-update.tsx
+- features/gallery/components/gallery-filters.tsx
+- features/gallery/components/gallery-create-update-dialog.tsx
+- features/gallery/interfaces/gallery-filters-request-interface.ts
+- features/gallery/interfaces/gallery-open-create-update-interface.ts
+- features/gallery/constants/gallery-columns.tsx
+- features/gallery/constants/gallery-initial-filters-values.ts
+- features/gallery/constants/gallery-create-update-initial-values.ts
+- features/gallery/hooks/use-gallery.tsx
+- features/gallery/hooks/use-gallery-update.tsx
+- features/youtube-galleries/components/youtube-galleries-filters.tsx
+- features/youtube-galleries/components/youtube-galleries-create-update-dialog.tsx
+- features/youtube-galleries/interfaces/youtube-galleries-filters-request-interface.ts
+- features/youtube-galleries/interfaces/youtube-galleries-open-create-update-interface.ts
+- features/youtube-galleries/constants/youtube-galleries-columns.tsx
+- features/youtube-galleries/constants/youtube-galleries-initial-filters-values.ts
+- features/youtube-galleries/constants/youtube-galleries-create-update-initial-values.ts
+- features/youtube-galleries/hooks/use-youtube-galleries.tsx
+- features/youtube-galleries/hooks/use-youtube-galleries-update.tsx
+- features/blog-posts/components/blog-posts-filters.tsx
+- features/blog-posts/components/blog-posts-create-update-dialog.tsx
+- features/blog-posts/interfaces/blog-posts-filters-request-interface.ts
+- features/blog-posts/interfaces/blog-posts-open-create-update-interface.ts
+- features/blog-posts/constants/blog-posts-columns.tsx
+- features/blog-posts/constants/blog-posts-initial-filters-values.ts
+- features/blog-posts/constants/blog-posts-create-update-initial-values.ts
+- features/blog-posts/hooks/use-blog-posts.tsx
+- features/blog-posts/hooks/use-blog-posts-update.tsx
+- features/setting/components/setting-filters.tsx
+- features/setting/components/settings-update-form.tsx
+- features/setting/interfaces/setting-form-interface.ts
+- features/setting/hooks/use-setting.tsx
+- features/setting/hooks/use-setting-update.tsx
+- features/setting/validation/setting-validation.ts
+- hooks/use-mobile.ts
+- components/shadcn-ui/button.tsx
+- components/shadcn-ui/input.tsx
+- components/shadcn-ui/sheet.tsx
+- components/shadcn-ui/skeleton.tsx
+- components/shadcn-ui/tooltip.tsx
+- components/shadcn-ui/command.tsx
+- components/shadcn-ui/collapsible.tsx
+- components/shadcn-ui/dropdown-menu.tsx
+- components/shadcn-ui/alert.tsx
+- utils/index.ts
+- components/shadcn-ui/avatar.tsx
+- components/shadcn-ui/dialog.tsx
+- components/shadcn-ui/textarea.tsx
+- components/shadcn-ui/table.tsx
+- components/shadcn-ui/checkbox.tsx
+- components/shadcn-ui/card.tsx
+- features/login/services/index.ts
+- stores/use-auth-store.ts
+- features/services/validation/index.ts
+- features/services/services/index.ts
+- features/faqs/components/faqs-create-update-form.tsx
+- features/faqs/validation/index.ts
+- features/faqs/services/index.ts
+- features/our-specialists/components/our-specialists-create-update-form.tsx
+- features/our-specialists/validation/index.ts
+- features/our-specialists/services/index.ts
+- features/testimonials/components/testimonials-create-update-form.tsx
+- features/testimonials/validation/index.ts
+- features/testimonials/services/index.ts
+- features/gallery/components/gallery-create-update-form.tsx
+- features/gallery/validation/index.ts
+- features/gallery/services/index.ts
+- features/youtube-galleries/components/youtube-galleries-create-update-form.tsx
+- features/youtube-galleries/validation/index.ts
+- features/youtube-galleries/services/index.ts
+- features/blog-posts/components/blog-posts-create-update-form.tsx
+- features/blog-posts/validation/index.ts
+- features/blog-posts/services/index.ts
+- features/setting/services/index.ts
+- components/titles/section-title.tsx
+- components/titles/form-label.tsx
+- components/buttons/refetching-button.tsx
+- components/buttons/add-button.tsx
+- components/buttons/icon-button.tsx
+- components/dialogs/main-dialog.tsx
+- components/form/switch-field.tsx
+- components/ui/linear-loading.tsx
+- features/login/services/login-service.ts
+- features/services/interfaces/services-interface.ts
+- features/services/interfaces/services-form-interface.ts
+- features/services/components/services-create-update-form.tsx
+- features/services/constants/services-initial-values.ts
+- features/services/validation/services-validation.ts
+- features/services/hooks/use-services-get-by-id.tsx
+- features/services/services/services-create-service.ts
+- features/services/services/services-update-service.ts
+- features/services/services/services-remove-service.ts
+- features/services/services/services-get-all-service.ts
+- features/faqs/constants/faqs-initial-values.ts
+- features/faqs/interfaces/faqs-interface.ts
+- features/faqs/interfaces/faqs-form-interface.ts
+- features/faqs/hooks/use-faqs-get-by-id.tsx
+- features/faqs/validation/faqs-validation.ts
+- features/faqs/services/faqs-create-service.ts
+- features/faqs/services/faqs-update-service.ts
+- features/faqs/services/faqs-remove-service.ts
+- features/faqs/services/faqs-get-all-service.ts
+- features/our-specialists/constants/our-specialists-initial-values.ts
+- features/our-specialists/interfaces/our-specialists-interface.ts
+- features/our-specialists/interfaces/our-specialists-form-interface.ts
+- features/our-specialists/hooks/use-our-specialists-get-by-id.tsx
+- features/our-specialists/validation/our-specialists-validation.ts
+- features/our-specialists/services/our-specialists-create-service.ts
+- features/our-specialists/services/our-specialists-update-service.ts
+- features/our-specialists/services/our-specialists-remove-service.ts
+- features/our-specialists/services/our-specialists-get-all-service.ts
+- features/testimonials/constants/testimonials-initial-values.ts
+- features/testimonials/interfaces/testimonials-interface.ts
+- features/testimonials/interfaces/testimonials-form-interface.ts
+- features/testimonials/hooks/use-testimonials-get-by-id.tsx
+- features/testimonials/validation/testimonials-validation.ts
+- features/testimonials/services/testimonials-create-service.ts
+- features/testimonials/services/testimonials-update-service.ts
+- features/testimonials/services/testimonials-remove-service.ts
+- features/testimonials/services/testimonials-get-all-service.ts
+- features/gallery/constants/gallery-initial-values.ts
+- features/gallery/interfaces/gallery-interface.ts
+- features/gallery/interfaces/gallery-form-interface.ts
+- features/gallery/hooks/use-gallery-get-by-id.tsx
+- features/gallery/validation/gallery-validation.ts
+- features/gallery/services/gallery-create-service.ts
+- features/gallery/services/gallery-update-service.ts
+- features/gallery/services/gallery-remove-service.ts
+- features/gallery/services/gallery-get-all-service.ts
+- features/youtube-galleries/constants/youtube-galleries-initial-values.ts
+- features/youtube-galleries/interfaces/youtube-galleries-interface.ts
+- features/youtube-galleries/interfaces/youtube-galleries-form-interface.ts
+- features/youtube-galleries/hooks/use-youtube-galleries-get-by-id.tsx
+- features/youtube-galleries/validation/youtube-galleries-validation.ts
+- features/youtube-galleries/services/youtube-galleries-create-service.ts
+- features/youtube-galleries/services/youtube-galleries-update-service.ts
+- features/youtube-galleries/services/youtube-galleries-remove-service.ts
+- features/youtube-galleries/services/youtube-galleries-get-all-service.ts
+- features/blog-posts/constants/blog-posts-initial-values.ts
+- features/blog-posts/interfaces/blog-posts-interface.ts
+- features/blog-posts/interfaces/blog-posts-form-interface.ts
+- features/blog-posts/hooks/use-blog-posts-get-by-id.tsx
+- features/blog-posts/validation/blog-posts-validation.ts
+- features/blog-posts/services/blog-posts-create-service.ts
+- features/blog-posts/services/blog-posts-update-service.ts
+- features/blog-posts/services/blog-posts-remove-service.ts
+- features/blog-posts/services/blog-posts-get-all-service.ts
+- components/form/async-autocomplete-field.tsx
+- components/form/image-upload.tsx
+- components/form/rich-text-field.tsx
+- features/setting/services/setting-update-service.ts
+- features/setting/services/setting-get-all-service.ts
+- components/shadcn-ui/label.tsx
+- api/types/enums.tsx
+- components/shadcn-ui/switch.tsx
+- api/axios.ts
+- features/login/interfaces/index.ts
+- features/services/services/services-endpoints.ts
+- features/faqs/services/faqs-endpoints.ts
+- components/titles/section-subtitle.tsx
+- components/buttons/close-dialog.tsx
+- features/our-specialists/services/our-specialists-endpoints.ts
+- features/testimonials/services/testimonials-endpoints.ts
+- features/gallery/services/gallery-endpoints.ts
+- features/youtube-galleries/services/youtube-galleries-endpoints.ts
+- features/our-specialists/services/our-specialists-get-by-id-service.ts
+- features/blog-posts/services/blog-posts-endpoints.ts
+- hooks/index.ts
+- components/shadcn-ui/select.tsx
+- features/setting/services/setting-endpoints.ts
+- components/form/autocomplete-field.tsx
+- features/login/interfaces/login-request-interface-.ts
+- features/services/services/services-get-by-id-service.ts
+- features/services/interfaces/services-get-all-response-interface.ts
+- features/services/interfaces/services-create-request-interface.ts
+- features/services/interfaces/services-update-request-interface.ts
+- features/faqs/services/faqs-get-by-id-service.ts
+- features/faqs/interfaces/faqs-get-all-response-interface.ts
+- features/faqs/interfaces/faqs-create-request-interface.ts
+- features/faqs/interfaces/faqs-update-request-interface.ts
+- features/our-specialists/interfaces/our-specialists-get-all-response-interface.ts
+- features/our-specialists/interfaces/our-specialists-create-request-interface.ts
+- features/our-specialists/interfaces/our-specialists-update-request-interface.ts
+- features/testimonials/services/testimonials-get-by-id-service.ts
+- features/testimonials/interfaces/testimonials-get-all-response-interface.ts
+- features/testimonials/interfaces/testimonials-create-request-interface.ts
+- features/testimonials/interfaces/testimonials-update-request-interface.ts
+- features/gallery/services/gallery-get-by-id-service.ts
+- features/gallery/interfaces/gallery-get-all-response-interface.ts
+- features/gallery/interfaces/gallery-create-request-interface.ts
+- features/gallery/interfaces/gallery-update-request-interface.ts
+- features/youtube-galleries/services/youtube-galleries-get-by-id-service.ts
+- features/youtube-galleries/interfaces/youtube-galleries-get-all-response-interface.ts
+- features/youtube-galleries/interfaces/youtube-galleries-create-request-interface.ts
+- features/youtube-galleries/interfaces/youtube-galleries-update-request-interface.ts
+- features/blog-posts/services/blog-posts-get-by-id-service.ts
+- features/blog-posts/interfaces/blog-posts-get-all-response-interface.ts
+- features/blog-posts/interfaces/blog-posts-create-request-interface.ts
+- features/blog-posts/interfaces/blog-posts-update-request-interface.ts
+- hooks/use-debounce.tsx
+- hooks/use-autocomplete.ts
+- features/setting/interfaces/setting-get-all-response-interface.ts
+- features/setting/interfaces/setting-update-request-interface.ts
+- components/shadcn-ui/popover.tsx
+- components/shadcn-ui/badge.tsx
+- api/types/main-type.ts
+- features/setting/interfaces/setting-interface.ts
+
+## Explicit exclusions
+
+components/ui/data-pivot-new.tsx, components/ui/rich-tree-view.tsx, components/shadcn-ui/chart.tsx, toolbar language/theme/layout switchers, fullcalendar, swiper, recharts, number-to-arabic-words, next-themes, Vite entry/config/build files, bin scripts, all legacy pages/ and router/provider entry points. No source or environment file in the standalone project is modified.

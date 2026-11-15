@@ -1,0 +1,118 @@
+{
+  "steps": [
+    {
+      "name": "empty public pages render in Arabic and English with metadata and sitemap",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile layout at 390x844 has no settled horizontal overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "unauthorized pages/APIs are rejected; invalid login fails then secure SuperAdmin login succeeds",
+      "status": "PASS"
+    },
+    {
+      "name": "Services first record create/read/update through unchanged form and table",
+      "status": "PASS"
+    },
+    {
+      "name": "FAQs first record create/read/update through unchanged form and table",
+      "status": "PASS"
+    },
+    {
+      "name": "OurSpecialists first record create/read/update through unchanged form and table",
+      "status": "PASS"
+    },
+    {
+      "name": "Testimonials first record create/read/update through unchanged form and table",
+      "status": "PASS"
+    },
+    {
+      "name": "Galleries first record create/read/update through unchanged form and table",
+      "status": "PASS"
+    },
+    {
+      "name": "YouTubeGalleries first record create/read/update through unchanged form and table",
+      "status": "PASS"
+    },
+    {
+      "name": "BlogPosts first record create/read/update through unchanged form and table",
+      "status": "PASS"
+    },
+    {
+      "name": "settings UI saves first values and invalidates public cache; uploaded image renders publicly",
+      "status": "PASS"
+    },
+    {
+      "name": "measured startup/RSS/warm reads/concurrent reads/SQL sessions and UI image upload memory",
+      "status": "PASS"
+    },
+    {
+      "name": "media bytes, ETag and Range persist across complete application restart; browser session restores",
+      "status": "PASS"
+    },
+    {
+      "name": "BlogPosts delete through existing confirmation UI",
+      "status": "PASS"
+    },
+    {
+      "name": "YouTubeGalleries delete through existing confirmation UI",
+      "status": "PASS"
+    },
+    {
+      "name": "Galleries delete through existing confirmation UI",
+      "status": "PASS"
+    },
+    {
+      "name": "Testimonials delete through existing confirmation UI",
+      "status": "PASS"
+    },
+    {
+      "name": "OurSpecialists delete through existing confirmation UI",
+      "status": "PASS"
+    },
+    {
+      "name": "FAQs delete through existing confirmation UI",
+      "status": "PASS"
+    },
+    {
+      "name": "Services delete through existing confirmation UI",
+      "status": "PASS"
+    },
+    {
+      "name": "UI logout revokes SQL session and protected routes fail; no legacy calls or browser exceptions",
+      "status": "PASS"
+    }
+  ],
+  "browser": "157.0.8103.50",
+  "legacyAttempts": 0,
+  "pageErrors": [],
+  "performance": {
+    "startupMs": 329,
+    "idleRssBytes": 247844864,
+    "warmRead": {
+      "requests": 30,
+      "p50Ms": 9.54,
+      "p95Ms": 21.83
+    },
+    "concurrentReads": {
+      "concurrency": 6,
+      "requests": 30,
+      "elapsedMs": 78,
+      "passed": 6
+    },
+    "sqlSessions": 1,
+    "poolConfiguredMax": 3,
+    "beforeImageUploadRssBytes": 259366912,
+    "imageUploadMs": 665,
+    "afterImageUploadRssBytes": 281665536,
+    "imageFixtureBytes": 3147780,
+    "rssMethod": "Windows Get-Process WorkingSet64, checkpoints, not peak"
+  },
+  "mobile": {
+    "viewport": 390,
+    "scrollWidth": 390,
+    "overflow": []
+  }
+}

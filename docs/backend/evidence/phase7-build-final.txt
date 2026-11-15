@@ -1,0 +1,122 @@
+
+> lapis@0.1.0 build
+> next build
+
+▲ Next.js 16.4.6 (Turbopack)
+- Environments: .env
+✓ Running next.config.ts took 29ms
+- Experiments (use with caution):
+  ✓ globalNotFound
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 979ms
+  Running TypeScript ...
+  Finished TypeScript in 2.1s ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/27) ...
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+  Generating static pages using 11 workers (6/27) 
+  Generating static pages using 11 workers (13/27) 
+  Generating static pages using 11 workers (20/27) 
+✓ Generating static pages using 11 workers (27/27) in 571ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ƒ /_not-found
+├ ƒ /about
+├ ƒ /api/Ads/edit
+├ ƒ /api/Ads/get
+├ ƒ /api/auth/confirm-email
+├ ƒ /api/auth/login
+├ ƒ /api/auth/register
+├ ƒ /api/auth/reset-password
+├ ƒ /api/auth/send-otp
+├ ƒ /api/auth/toggle-2fa
+├ ƒ /api/auth/verify-otp
+├ ƒ /api/BlogPosts/add
+├ ƒ /api/BlogPosts/by-slug/[slug]
+├ ƒ /api/BlogPosts/delete/[id]
+├ ƒ /api/BlogPosts/edit/[id]
+├ ƒ /api/BlogPosts/get-all
+├ ƒ /api/BlogPosts/get-by-id/[id]
+├ ƒ /api/Client/get-ads
+├ ƒ /api/Client/get-settings
+├ ƒ /api/FAQs/add
+├ ƒ /api/FAQs/delete/[id]
+├ ƒ /api/FAQs/edit/[id]
+├ ƒ /api/FAQs/get-all
+├ ƒ /api/FAQs/get-by-id/[id]
+├ ƒ /api/FileUpload/upload
+├ ƒ /api/Galleries/add
+├ ƒ /api/Galleries/delete/[id]
+├ ƒ /api/Galleries/edit/[id]
+├ ƒ /api/Galleries/get-all
+├ ƒ /api/Galleries/get-by-id/[id]
+├ ƒ /api/health
+├ ƒ /api/OurSpecialists/add
+├ ƒ /api/OurSpecialists/delete/[id]
+├ ƒ /api/OurSpecialists/edit/[id]
+├ ƒ /api/OurSpecialists/get-all
+├ ƒ /api/OurSpecialists/get-by-id/[id]
+├ ƒ /api/Services/add
+├ ƒ /api/Services/delete/[id]
+├ ƒ /api/Services/edit/[id]
+├ ƒ /api/Services/get-all
+├ ƒ /api/Services/get-by-id/[id]
+├ ƒ /api/Setting/edit
+├ ƒ /api/Setting/get
+├ ƒ /api/Setting/get-statistic
+├ ƒ /api/Testimonials/add
+├ ƒ /api/Testimonials/delete/[id]
+├ ƒ /api/Testimonials/edit/[id]
+├ ƒ /api/Testimonials/get-all
+├ ƒ /api/Testimonials/get-by-id/[id]
+├ ƒ /api/User/change-password
+├ ƒ /api/User/edit-profile
+├ ƒ /api/User/get-all
+├ ƒ /api/User/get-by-id/[id]
+├ ƒ /api/User/get-info
+├ ƒ /api/User/toggle-disable
+├ ƒ /api/YouTubeGalleries/add
+├ ƒ /api/YouTubeGalleries/delete/[id]
+├ ƒ /api/YouTubeGalleries/edit/[id]
+├ ƒ /api/YouTubeGalleries/get-all
+├ ƒ /api/YouTubeGalleries/get-by-id/[id]
+├ ○ /apple-icon.png
+├ ƒ /blog
+├ ƒ /blog/[slug]
+├ ƒ /contact
+├ ○ /dashboard
+├ ƒ /dashboard/[...notFound]
+├ ƒ /dashboard/api/proxy/[...path]
+├ ƒ /dashboard/api/session
+├ ƒ /dashboard/api/session/login
+├ ƒ /dashboard/api/session/logout
+├ ○ /dashboard/blog-posts
+├ ○ /dashboard/faqs
+├ ○ /dashboard/gallery
+├ ○ /dashboard/login
+├ ○ /dashboard/our-specialists
+├ ○ /dashboard/services
+├ ○ /dashboard/settings
+├ ○ /dashboard/testimonials
+├ ○ /dashboard/youtube-galleries
+├ ƒ /gallery
+├ ○ /icon.png
+├ ○ /manifest.webmanifest
+├ ○ /opengraph-image.png
+├ ○ /robots.txt
+├ ƒ /services
+├ ƒ /sitemap.xml
+├ ○ /twitter-image.png
+├ ƒ /uploads/[key]
+└ ƒ /youtube-videos
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

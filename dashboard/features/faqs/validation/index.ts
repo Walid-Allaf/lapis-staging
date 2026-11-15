@@ -1,0 +1,1 @@
+export { default as FaqsSchema } from './faqs-validation';

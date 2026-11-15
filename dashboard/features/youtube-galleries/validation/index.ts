@@ -1,0 +1,1 @@
+export { default as YouTubeGalleriesSchema } from './youtube-galleries-validation';

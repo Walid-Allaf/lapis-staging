@@ -1,0 +1,91 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        surface: "var(--surface)",
+        "surface-muted": "var(--surface-muted)",
+        "surface-raised": "var(--surface-raised)",
+        border: "var(--border)",
+        "border-strong": "var(--border-strong)",
+        muted: "var(--muted)",
+        "muted-foreground": "var(--muted-foreground)",
+        primary: "var(--primary)",
+        "primary-foreground": "var(--primary-foreground)",
+        "primary-hover": "var(--primary-hover)",
+        gold: "var(--gold)",
+        "gold-foreground": "var(--gold-foreground)",
+        ink: "var(--ink)",
+        secondary: "var(--secondary)",
+        "secondary-foreground": "var(--secondary-foreground)",
+        accent: "var(--accent)",
+        "accent-foreground": "var(--accent-foreground)",
+        success: "var(--success)",
+        warning: "var(--warning)",
+        danger: "var(--danger)",
+        brand: {
+          navy: "var(--color-primary)",
+          gold: "var(--gold)",
+          blue: "var(--color-primary-blue)",
+          sky: "var(--color-sky-blue)",
+          "sky-soft": "var(--color-sky-blue-soft)",
+        },
+        body: "var(--color-body)",
+        placeholder: "var(--color-placeholder)",
+        disabled: "var(--color-disabled)",
+      },
+      fontFamily: {
+        sans: ["var(--font-family-sans)"],
+        display: ["var(--font-family-display)"],
+      },
+      fontSize: {
+        "body-sm": ["var(--text-body-sm)", { lineHeight: "1.55", letterSpacing: "var(--tracking-caption)" }],
+        "body-md": ["var(--text-body-md)", { lineHeight: "1.55", letterSpacing: "var(--tracking-body)" }],
+        "body-lg": ["var(--text-body-lg)", { lineHeight: "1.55", letterSpacing: "var(--tracking-body)" }],
+        "heading-sm": ["var(--text-heading-sm)", { lineHeight: "1.2", letterSpacing: "var(--tracking-heading)" }],
+        "heading-md": ["var(--text-heading-md)", { lineHeight: "1.25", letterSpacing: "var(--tracking-heading)" }],
+        "heading-lg": ["var(--text-heading-lg)", { lineHeight: "1.25", letterSpacing: "var(--tracking-heading)" }],
+        "heading-xl": ["var(--text-heading-xl)", { lineHeight: "1.2", letterSpacing: "var(--tracking-tight)" }],
+        nav: ["var(--text-nav)", { lineHeight: "1.55", letterSpacing: "var(--tracking-body)" }],
+        "hero-title": ["var(--text-hero-title)", { lineHeight: "1.2", letterSpacing: "var(--tracking-heading)" }],
+        "hero-body": ["var(--text-hero-body)", { lineHeight: "1.55", letterSpacing: "var(--tracking-body)" }],
+      },
+      borderRadius: {
+        xs: "var(--radius-xs)",
+        sm: "var(--radius-sm)",
+        md: "var(--radius-md)",
+        lg: "var(--radius-lg)",
+        xl: "var(--radius-xl)",
+        "2xl": "var(--radius-2xl)",
+        button: "var(--radius-button)",
+      },
+      boxShadow: {
+        xs: "var(--shadow-xs)",
+        sm: "var(--shadow-sm)",
+        md: "var(--shadow-md)",
+        lg: "var(--shadow-lg)",
+        sky: "var(--shadow-sky)",
+      },
+      backgroundImage: {
+        "sky-gradient": "var(--gradient-sky)",
+        "sky-soft-gradient": "var(--gradient-sky-soft)",
+        "sky-fade-gradient": "var(--gradient-sky-fade)",
+      },
+      maxWidth: {
+        "desktop-container": "var(--layout-desktop-container)",
+        site: "var(--layout-desktop-container)",
+        "hero-copy": "var(--hero-copy-width)",
+        "hero-body": "var(--hero-body-width)",
+      },
+    },
+  },
+};
+
+export default config;
