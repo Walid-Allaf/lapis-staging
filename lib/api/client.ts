@@ -34,6 +34,11 @@ export function createAssetUrl(filePath: string | null | undefined) {
     return null;
   }
 
+  // Internal media is served by this application, independently of its build origin.
+  if (/^\/?uploads\/[a-f0-9]{32}\.(?:jpg|png|webp|gif|pdf)$/.test(filePath)) {
+    return `/${filePath.replace(/^\//, "")}`;
+  }
+
   if (/^https?:\/\//i.test(filePath)) {
     return filePath;
   }

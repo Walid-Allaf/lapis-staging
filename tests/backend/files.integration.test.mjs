@@ -71,7 +71,7 @@ test('Phase 5 real SQL, private filesystem, upload/content/frontend contracts an
         const row=await rowById(dto.fileId);assert.equal(row.StorageState,'ready');assert.equal(row.ActorKey,manager.UserKey);assert.equal(Number(row.ByteLength),bytes.length);assert.equal(row.MimeType,mime);assert.ok(row.Sha256.equals(createHash('sha256').update(bytes).digest()));assert.equal(row.OriginalName,'untrusted.'+extension);assert.equal(row.PublicPath,dto.filePath);assert.match(row.StorageKey,new RegExp('^[a-f0-9]{32}\\.'+extension+'$'));
         const response=await media(row.StorageKey);assert.equal(response.status,200);assert.equal(response.headers.get('content-type'),mime);assert.equal(response.headers.get('x-content-type-options'),'nosniff');assert.match(response.headers.get('content-security-policy'),/sandbox/);assert.deepEqual(Buffer.from(await response.arrayBuffer()),bytes);
         assert.equal(loadTs('dashboard/api/urls.ts').getAssetUrl(dto.filePath),'https://same-origin.invalid/'+dto.filePath);
-        assert.equal(loadTs('lib/api/client.ts').createAssetUrl(dto.filePath),'https://same-origin.invalid/'+dto.filePath);
+        assert.equal(loadTs('lib/api/client.ts').createAssetUrl(dto.filePath),'/'+dto.filePath);
       }
     });
     await context.test('actual ImageUpload component posts FormData to actual route and consumes PNG/PDF results unchanged',async()=>{
