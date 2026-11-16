@@ -16,9 +16,17 @@ test('internal registry exactly covers all57 original operations and does not in
   assert.equal((await dispatchInternal(new Request('https://internal/api/Services/add'))).status,405);
   assert.equal((await dispatchPublic(new Request('https://internal/api/Setting/get'))).status,401);
 });
-test('origin validation rejects legacy host, untrusted cleartext, paths, credentials and unsafe production defaults',()=>{
+test('origin validation allows only the exact explicitly gated HTTP staging origin',()=>{
   assert.equal(applicationOrigin({}).origin,'http://localhost:3000');
   assert.equal(applicationOrigin({SQL_ENV:'production',APP_ORIGIN:'https://example.invalid'}).origin,'https://example.invalid');
+  assert.equal(applicationOrigin({SQL_ENV:'production',LAPIS_ENV:'staging',ALLOW_INSECURE_HTTP_STAGING:'true',APP_ORIGIN:'http://lapis-staging.runasp.net'}).origin,'http://lapis-staging.runasp.net');
+  for(const env of [
+    {SQL_ENV:'production',APP_ORIGIN:'http://lapis-staging.runasp.net'},
+    {SQL_ENV:'production',LAPIS_ENV:'production',ALLOW_INSECURE_HTTP_STAGING:'true',APP_ORIGIN:'http://lapis-staging.runasp.net'},
+    {SQL_ENV:'production',LAPIS_ENV:'staging',ALLOW_INSECURE_HTTP_STAGING:'true',APP_ORIGIN:'http://other.example'},
+    {SQL_ENV:'production',LAPIS_ENV:'staging',ALLOW_INSECURE_HTTP_STAGING:'true',APP_ORIGIN:'http://lapis-staging.runasp.net.'},
+    {SQL_ENV:'production',LAPIS_ENV:'staging',ALLOW_INSECURE_HTTP_STAGING:'true',APP_ORIGIN:'http://lapis-staging.runasp.net/'},
+  ]) assert.throws(()=>applicationOrigin(env));
   for(const raw of ['https://lapis.runasp.net','https://lapis.runasp.net.','https://*.example.invalid','https://**.example.invalid','http://example.invalid','https://user:secret@example.invalid','https://example.invalid/path','https://example.invalid?x=1','https://example.invalid/#x','javascript:alert(1)'])assert.throws(()=>applicationOrigin({APP_ORIGIN:raw}));
   assert.throws(()=>applicationOrigin({SQL_ENV:'production'}));assert.throws(()=>applicationOrigin({SQL_ENV:'production',APP_ORIGIN:'http://127.0.0.1:3000'}));
 });
@@ -59,6 +67,18 @@ test('configured application origin preserves strict CSRF despite Next loopback 
     assert.equal(isSameOriginMutation(new Request('http://localhost:1234/dashboard/api/session/login',{method:'POST',headers:{origin:'https://site.example'}})),true);
     for(const origin of ['https://evil.example','null','http://site.example','https://site.example:444'])assert.equal(isSameOriginMutation(new Request('http://localhost:1234/dashboard/api/session/login',{method:'POST',headers:{origin,'x-forwarded-host':'evil.example'}})),false);
   }finally{if(old===undefined)delete process.env.APP_ORIGIN;else process.env.APP_ORIGIN=old;}
+});
+test('approved HTTP staging keeps CSRF exact-origin protection',()=>{
+  const old={APP_ORIGIN:process.env.APP_ORIGIN,LAPIS_ENV:process.env.LAPIS_ENV,ALLOW_INSECURE_HTTP_STAGING:process.env.ALLOW_INSECURE_HTTP_STAGING,SQL_ENV:process.env.SQL_ENV};
+  process.env.APP_ORIGIN='http://lapis-staging.runasp.net';process.env.LAPIS_ENV='staging';process.env.ALLOW_INSECURE_HTTP_STAGING='true';process.env.SQL_ENV='production';
+  try{
+    const{isSameOriginMutation}=loadTs('dashboard/server/http.ts');
+    const req=origin=>new Request('http://localhost:3197/dashboard/api/session/login',{method:'POST',headers:{origin}});
+    assert.equal(isSameOriginMutation(req('http://lapis-staging.runasp.net')),true);
+    for(const origin of ['https://lapis-staging.runasp.net','http://evil.example','http://lapis-staging.runasp.net:8080'])assert.equal(isSameOriginMutation(req(origin)),false);
+  }finally{
+    for(const [key,value] of Object.entries(old)){if(value===undefined)delete process.env[key];else process.env[key]=value;}
+  }
 });
 const emptyExport=()=>({exportVersion:1,files:[],settings:{},modules:Object.fromEntries(['Services','FAQs','OurSpecialists','Testimonials','Galleries','YouTubeGalleries','BlogPosts'].map(name=>[name,[]]))});
 test('import dry run preserves proposed numeric identity mapping without writes or fabricated source data',()=>{

@@ -4,6 +4,7 @@ import { type NextResponse } from "next/server";
 import { expiryTime, isAdminRole } from "@/dashboard/api/auth";
 import { SESSION_COOKIE_NAME, type DashboardSession } from "@/dashboard/api/session-contract";
 import { verifyDashboardToken } from "@/server/integration/dashboard-session";
+import { isInsecureHttpStaging } from "@/server/integration/origin";
 
 // Leave headroom for the cookie name and attributes under the usual 4 KiB cap.
 export const MAX_SESSION_TOKEN_BYTES = 3500;
@@ -27,8 +28,12 @@ export async function readAdminSession() {
   return verifyDashboardToken(token);
 }
 
+export function sessionCookieAttributes(env: Readonly<Record<string, string | undefined>> = process.env) {
+  return { httpOnly: true, secure: env.NODE_ENV === "production" && !isInsecureHttpStaging(env), sameSite: "strict" as const, path: "/dashboard" };
+}
+
 function attributes() {
-  return { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "strict" as const, path: "/dashboard" };
+  return sessionCookieAttributes();
 }
 
 export function setSessionCookie(response: NextResponse, token: string, expiresOn: string) {

@@ -2,6 +2,20 @@
 
 **NOT TESTED / NOT EXECUTED.** Phase7A made no hosted site/database/admin/DNS/IIS changes. Obtain explicit owner approval before these steps. No historical import, protected scraping or legacy credential transfer is included.
 
+## Temporary MonsterASP.NET Free HTTP staging gate
+
+The application now permits cleartext HTTP only for the disposable staging origin when the three staging-gate values below match exactly and `SQL_ENV=production` is set:
+
+```text
+APP_ORIGIN=http://lapis-staging.runasp.net
+LAPIS_ENV=staging
+ALLOW_INSECURE_HTTP_STAGING=true
+```
+
+Keep `SQL_ENV=production` for the hosted SQL database; it is intentionally separate from `LAPIS_ENV`. Any other HTTP hostname, a missing/mismatched flag, or a production deployment with an HTTP origin is rejected. HTTPS production continues to require Secure dashboard cookies. The approved HTTP staging cookie remains HttpOnly and SameSite=Strict but is not Secure because the provider does not offer HTTPS on the Free plan. Use only disposable test accounts and non-sensitive test data; this is not secure production transport.
+
+The remaining hosted server-side settings are the SQL connection values, `UPLOAD_DIR` (a provider-confirmed private absolute persistent directory outside the application/wwwroot and ancestors), JWT/OTP authentication settings, and SMTP settings if registration, OTP, or password-reset mail is exercised. Do not place secrets in `NEXT_PUBLIC_*`, commit them, or expose them in logs. No deployment, database migration, initialization, or SuperAdmin bootstrap is authorized by this local staging-gate change.
+
 1. Review the corrected Phase7A evidence, successful repeated mobile matrix and remaining operator-only local cleanup handoff. Do not infer staging execution approval. Select an isolated staging site/subdomain under the existing Premium Single account; confirm subscription quotas without upgrading or replacing a site. Verify the exact available Node version and build/runtime architecture against the locally tested Node26.3.1/Next16.4.6 and installed Next engine minimum20.9.0. Confirm dependency installation/build resources separately from worker RAM.
 2. Create a **new clean staging SQL database**, separate runtime/maintenance principals where supported, separate JWT/OTP/SMTP secrets and operator email/password. Confirm encrypted certificate-verified access, target name, clock/UTC and application-lock/DDL permissions; never alter an old database.
 3. Ask the provider for the actual private absolute persistent uploads path outside wwwroot/app/build/staging and their ancestors. Confirm Node-identity NTFS permissions, no junctions/static access, same-volume hard links, quota and backup coverage. Start empty; copy no old files.
